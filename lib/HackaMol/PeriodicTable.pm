@@ -440,7 +440,7 @@ HackaMol::PeriodicTable
 
 =head1 VERSION
 
-version 0.00_01
+version 0.00_02
 
 =head1 EXTENDS
 

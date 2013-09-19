@@ -40,7 +40,7 @@ HackaMol::QmAtomRole - simple role that provides attributes needed for setting u
 
 =head1 VERSION
 
-version 0.00_01
+version 0.00_02
 
 =head1 SYNOPSIS
 
@@ -89,6 +89,20 @@ isa Str that is lazy and rw
 =head2 ecp
 
 isa Str that is lazy and rw
+
+=head1 SEE ALSO
+
+=over 4
+
+=item *
+
+L<HackaMol::Atom>
+
+=item *
+
+L<EMSL | https://bse.pnl.gov/bse/portal>
+
+=back
 
 =head1 AUTHOR
 

@@ -36,7 +36,6 @@ my %WriteMakefileArgs = (
     "Cwd" => 0,
     "File::Slurp" => 0,
     "Math::Vector::Real::Random" => 0,
-    "MooseX::ClassCompositor" => 0,
     "Test::Fatal" => 0,
     "Test::Moose" => 0,
     "Test::More" => 0,
@@ -46,7 +45,7 @@ my %WriteMakefileArgs = (
     "strict" => 0,
     "warnings" => 0
   },
-  "VERSION" => "0.00_01",
+  "VERSION" => "0.00_02",
   "test" => {
     "TESTS" => "t/*.t"
   }

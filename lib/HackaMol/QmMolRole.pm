@@ -65,7 +65,7 @@ HackaMol::QmMolRole - provides attributes needed for quantum chemistry calculati
 
 =head1 VERSION
 
-version 0.00_01
+version 0.00_02
 
 =head1 SYNOPSIS
 
@@ -137,6 +137,20 @@ all_$_ clear_$_ count_$_
 
 each isa ArrayRef[Math::Vector::Real] that is lazy with public ARRAY traits: push_$_ get_$_
 all_$_ clear_$_ count_$_
+
+=head1 SEE ALSO
+
+=over 4
+
+=item *
+
+L<HackaMol::Molecule>
+
+=item *
+
+L<EMSL | https://bse.pnl.gov/bse/portal>
+
+=back
 
 =head1 CONSUMES
 

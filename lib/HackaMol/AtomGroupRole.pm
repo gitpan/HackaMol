@@ -222,7 +222,7 @@ HackaMol::AtomGroupRole - Role for a group of atoms
 
 =head1 VERSION
 
-version 0.00_01
+version 0.00_02
 
 =head1 SYNOPSIS
 
@@ -357,8 +357,8 @@ coordinates in tf rather than atom->t.
 requires Math::Vector::Real vector, an angle (in degrees), and a MVR vector origin as arguments. 
 Optional argument: integer tf.  
 
-Rotates all atoms in the group around the MVR vector. Pass tf to the translate method to store new 
-coordinates in tf rather than atom->t.
+Rotates all atoms in the group around the MVR vector. Pass tf to the translate method to store 
+new coordinates in tf rather than atom->t.
 
 =head1 ARRAY METHODS
 
@@ -405,6 +405,28 @@ clears atoms array
 =head2 atoms
 
 isa ArrayRef[Atom] that is lazy with public ARRAY traits described in ARRAY_METHODS
+
+=head1 SEE ALSO
+
+=over 4
+
+=item *
+
+L<HackaMol::AtomGroup>
+
+=item *
+
+L<HackaMol::Bond>
+
+=item *
+
+L<HackaMol::Angle>
+
+=item *
+
+L<HackaMol::Dihedral>
+
+=back
 
 =head1 AUTHOR
 
