@@ -173,7 +173,7 @@ HackaMol::Atom - HackaMol Atom Class
 
 =head1 VERSION
 
-version 0.00_03
+version 0.00_04
 
 =head1 SYNOPSIS
 
@@ -229,7 +229,7 @@ I<change_Z>.
 
 =head2 is_dirty
 
-isa Bool that is lazy and rw.  Default is 0.  C<$self->is_dirty(1)> called 
+isa Bool that is lazy and rw.  Default is 0.  $self->is_dirty(1) called 
 during the I<change_symbol> and I<change_Z methods>.
 
 =head2 symbol

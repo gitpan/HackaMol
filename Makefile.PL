@@ -25,8 +25,10 @@ my %WriteMakefileArgs = (
     "Exporter" => 0,
     "FileHandle" => 0,
     "Math::Trig" => 0,
-    "Math::Vector::Real" => 0,
-    "Moose" => 0,
+    "Math::Vector::Real" => "0.10",
+    "Math::Vector::Real::Random" => "0.03",
+    "Math::Vector::Real::XS" => "0.04",
+    "Moose" => "2.10",
     "Moose::Role" => 0,
     "MooseX::Storage" => 0,
     "Scalar::Util" => 0,
@@ -45,7 +47,7 @@ my %WriteMakefileArgs = (
     "strict" => 0,
     "warnings" => 0
   },
-  "VERSION" => "0.00_03",
+  "VERSION" => "0.00_04",
   "test" => {
     "TESTS" => "t/*.t"
   }

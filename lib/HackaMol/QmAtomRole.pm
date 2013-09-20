@@ -40,7 +40,7 @@ HackaMol::QmAtomRole - simple role that provides attributes needed for setting u
 
 =head1 VERSION
 
-version 0.00_03
+version 0.00_04
 
 =head1 SYNOPSIS
 
