@@ -74,7 +74,7 @@ HackaMol::Bond - HackaMol Bond class
 
 =head1 VERSION
 
-version 0.00_02
+version 0.00_03
 
 =head1 SYNOPSIS
 

@@ -40,27 +40,27 @@ HackaMol::QmAtomRole - simple role that provides attributes needed for setting u
 
 =head1 VERSION
 
-version 0.00_02
+version 0.00_03
 
 =head1 SYNOPSIS
 
-# instance of class that consumes the QmRole.
-
-$obj->basis_geom('spherical');
-
-$obj->basis_geom('cartesian');
-
-$obj->dummy('bq');
-
-print "dummy! "     if $obj->is_dummy;
-
-$obj->clear_dummy;
-
-print "not dummy! " unless $obj->is_dummy;
-
-$obj->basis('SDD');
-
-$obj->ecp('SDD');
+   # instance of class that consumes the QmRole.
+ 
+   $obj->basis_geom('spherical');
+ 
+   $obj->basis_geom('cartesian');
+ 
+   $obj->dummy('bq');
+ 
+   print "dummy! "     if $obj->is_dummy;
+ 
+   $obj->clear_dummy;
+ 
+   print "not dummy! " unless $obj->is_dummy;
+ 
+   $obj->basis('SDD');
+ 
+   $obj->ecp('SDD');
 
 =head1 DESCRIPTION
 
