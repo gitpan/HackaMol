@@ -21,7 +21,6 @@ my %WriteMakefileArgs = (
   "NAME" => "HackaMol",
   "PREREQ_PM" => {
     "Carp" => 0,
-    "Data::Dumper" => 0,
     "Exporter" => 0,
     "FileHandle" => 0,
     "Math::Trig" => 0,
@@ -47,7 +46,7 @@ my %WriteMakefileArgs = (
     "strict" => 0,
     "warnings" => 0
   },
-  "VERSION" => "0.00_04",
+  "VERSION" => "0.00_05",
   "test" => {
     "TESTS" => "t/*.t"
   }

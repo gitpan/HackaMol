@@ -14,6 +14,7 @@ examples/MVR.pl
 examples/Molecule.pl
 examples/OBabel.pl
 examples/bin_expand.pl
+examples/corg09_2xyz.pl
 examples/hackamol_synopsis.pl
 examples/heavy_mvr.pl
 examples/lazy_attr.pl
@@ -40,6 +41,238 @@ lib/HackaMol/PhysVecMVRRole.pm
 lib/HackaMol/QmAtomRole.pm
 lib/HackaMol/QmMolRole.pm
 lib/HackaMol/References.pm
+local_stuff/README.private
+local_stuff/Storage.t
+local_stuff/TODO.txt
+local_stuff/TODO/MVR.pm
+local_stuff/TODO/MVR_test.pl
+local_stuff/nytprof.out
+'local_stuff/nytprof/(eval 1)[IO-Handle-pm-275]-15-line.html'
+'local_stuff/nytprof/(eval 10)[Params-Util-pm-94]-43-line.html'
+'local_stuff/nytprof/(eval 140)[base-pm-81]-233-line.html'
+'local_stuff/nytprof/(eval 141)[base-pm-81]-234-line.html'
+'local_stuff/nytprof/(eval 144)[base-pm-81]-239-line.html'
+'local_stuff/nytprof/(eval 150)[base-pm-81]-251-line.html'
+'local_stuff/nytprof/(eval 154)[base-pm-81]-256-line.html'
+'local_stuff/nytprof/(eval 155)[base-pm-81]-259-line.html'
+'local_stuff/nytprof/(eval 2)[IO-Handle-pm-437]-16-line.html'
+'local_stuff/nytprof/(eval 23)[Params-Util-pm-818]-478-line.html'
+'local_stuff/nytprof/(eval 25)[Try-Tiny-pm-20]-49-line.html'
+'local_stuff/nytprof/(eval 27)[base-pm-81]-52-line.html'
+'local_stuff/nytprof/(eval 28)[base-pm-81]-62-line.html'
+'local_stuff/nytprof/(eval 3)[IO-Seekable-pm-111]-18-line.html'
+'local_stuff/nytprof/(eval 30)[base-pm-81]-68-line.html'
+'local_stuff/nytprof/(eval 31)[base-pm-81]-70-line.html'
+'local_stuff/nytprof/(eval 333)[Benchmark-pm-646]-474-line.html'
+'local_stuff/nytprof/(eval 36)[base-pm-81]-81-line.html'
+'local_stuff/nytprof/(eval 38)[base-pm-81]-86-line.html'
+'local_stuff/nytprof/(eval 4)[Time-HiRes-pm-28]-25-line.html'
+'local_stuff/nytprof/(eval 40)[base-pm-81]-90-line.html'
+'local_stuff/nytprof/(eval 41)[base-pm-81]-92-line.html'
+'local_stuff/nytprof/(eval 42)[Devel-GlobalDestruction-pm-16]-96-line.html'
+'local_stuff/nytprof/(eval 44)[base-pm-81]-100-line.html'
+'local_stuff/nytprof/(eval 45)[base-pm-81]-101-line.html'
+'local_stuff/nytprof/(eval 47)[base-pm-81]-104-line.html'
+'local_stuff/nytprof/(eval 48)[base-pm-81]-111-line.html'
+'local_stuff/nytprof/(eval 5)[Benchmark-pm-454]-28-line.html'
+'local_stuff/nytprof/(eval 52)[base-pm-81]-122-line.html'
+'local_stuff/nytprof/(eval 54)[base-pm-81]-125-line.html'
+'local_stuff/nytprof/(eval 58)[base-pm-81]-131-line.html'
+'local_stuff/nytprof/(eval 59)[base-pm-81]-133-line.html'
+'local_stuff/nytprof/(eval 6)[List-Util-pm-18]-33-line.html'
+'local_stuff/nytprof/(eval 62)[base-pm-81]-142-line.html'
+'local_stuff/nytprof/(eval 65)[base-pm-81]-149-line.html'
+'local_stuff/nytprof/(eval 66)[base-pm-81]-150-line.html'
+'local_stuff/nytprof/(eval 7)[Scalar-Util-pm-30]-34-line.html'
+'local_stuff/nytprof/(eval 74)[Eval-Closure-pm-135]-166-line.html'
+'local_stuff/nytprof/(eval 8)[base-pm-6]-37-line.html'
+'local_stuff/nytprof/(eval 9)[base-pm-81]-38-line.html'
+local_stuff/nytprof/B-Hooks-EndOfScope-XS-pm-351-line.html
+local_stuff/nytprof/B-Hooks-EndOfScope-pm-350-line.html
+local_stuff/nytprof/B-pm-139-line.html
+local_stuff/nytprof/Benchmark-pm-27-line.html
+local_stuff/nytprof/Carp-Heavy-pm-118-line.html
+local_stuff/nytprof/Carp-pm-8-line.html
+local_stuff/nytprof/Class-Load-XS-pm-54-line.html
+local_stuff/nytprof/Class-Load-pm-35-line.html
+local_stuff/nytprof/Class-MOP-Attribute-pm-102-line.html
+local_stuff/nytprof/Class-MOP-Class-Immutable-Trait-pm-106-line.html
+local_stuff/nytprof/Class-MOP-Class-pm-75-line.html
+local_stuff/nytprof/Class-MOP-Deprecated-pm-105-line.html
+local_stuff/nytprof/Class-MOP-Instance-pm-76-line.html
+local_stuff/nytprof/Class-MOP-Method-Accessor-pm-80-line.html
+local_stuff/nytprof/Class-MOP-Method-Constructor-pm-85-line.html
+local_stuff/nytprof/Class-MOP-Method-Generated-pm-82-line.html
+local_stuff/nytprof/Class-MOP-Method-Inlined-pm-87-line.html
+local_stuff/nytprof/Class-MOP-Method-Meta-pm-67-line.html
+local_stuff/nytprof/Class-MOP-Method-Overload-pm-72-line.html
+local_stuff/nytprof/Class-MOP-Method-Wrapped-pm-78-line.html
+local_stuff/nytprof/Class-MOP-Method-pm-69-line.html
+local_stuff/nytprof/Class-MOP-MiniTrait-pm-89-line.html
+local_stuff/nytprof/Class-MOP-Mixin-AttributeCore-pm-61-line.html
+local_stuff/nytprof/Class-MOP-Mixin-HasAttributes-pm-64-line.html
+local_stuff/nytprof/Class-MOP-Mixin-HasMethods-pm-66-line.html
+local_stuff/nytprof/Class-MOP-Mixin-pm-63-line.html
+local_stuff/nytprof/Class-MOP-Module-pm-91-line.html
+local_stuff/nytprof/Class-MOP-Object-pm-71-line.html
+local_stuff/nytprof/Class-MOP-Package-pm-93-line.html
+local_stuff/nytprof/Class-MOP-pm-59-line.html
+local_stuff/nytprof/Config-pm-20-line.html
+local_stuff/nytprof/Data-Dumper-pm-472-line.html
+local_stuff/nytprof/Data-OptList-pm-39-line.html
+local_stuff/nytprof/Devel-GlobalDestruction-pm-94-line.html
+local_stuff/nytprof/DynaLoader-pm-24-line.html
+local_stuff/nytprof/Eval-Closure-pm-83-line.html
+local_stuff/nytprof/Exporter-Heavy-pm-26-line.html
+local_stuff/nytprof/Exporter-pm-9-line.html
+local_stuff/nytprof/Fcntl-pm-17-line.html
+local_stuff/nytprof/IO-File-pm-7-line.html
+local_stuff/nytprof/IO-Handle-pm-13-line.html
+local_stuff/nytprof/IO-Seekable-pm-12-line.html
+local_stuff/nytprof/IO-pm-14-line.html
+local_stuff/nytprof/List-MoreUtils-pm-57-line.html
+local_stuff/nytprof/List-Util-pm-32-line.html
+local_stuff/nytprof/MRO-Compat-pm-60-line.html
+local_stuff/nytprof/Modern-Perl-pm-2-line.html
+local_stuff/nytprof/Module-Implementation-pm-45-line.html
+local_stuff/nytprof/Module-Runtime-pm-46-line.html
+local_stuff/nytprof/Moose-Deprecated-pm-55-line.html
+local_stuff/nytprof/Moose-Error-Default-pm-117-line.html
+local_stuff/nytprof/Moose-Error-Util-pm-119-line.html
+local_stuff/nytprof/Moose-Exporter-pm-58-line.html
+local_stuff/nytprof/Moose-Meta-Attribute-Native-Trait-Array-pm-384-line.html
+local_stuff/nytprof/Moose-Meta-Attribute-Native-Trait-pm-386-line.html
+local_stuff/nytprof/Moose-Meta-Attribute-Native-pm-266-line.html
+local_stuff/nytprof/Moose-Meta-Attribute-pm-138-line.html
+local_stuff/nytprof/Moose-Meta-Class-Immutable-Trait-pm-121-line.html
+local_stuff/nytprof/Moose-Meta-Class-pm-109-line.html
+local_stuff/nytprof/Moose-Meta-Instance-pm-238-line.html
+local_stuff/nytprof/Moose-Meta-Method-Accessor-Native-Array-Writer-pm-392-line.html
+local_stuff/nytprof/Moose-Meta-Method-Accessor-Native-Array-clear-pm-390-line.html
+local_stuff/nytprof/Moose-Meta-Method-Accessor-Native-Array-count-pm-404-line.html
+local_stuff/nytprof/Moose-Meta-Method-Accessor-Native-Array-delete-pm-459-line.html
+local_stuff/nytprof/Moose-Meta-Method-Accessor-Native-Array-get-pm-408-line.html
+local_stuff/nytprof/Moose-Meta-Method-Accessor-Native-Array-pm-398-line.html
+local_stuff/nytprof/Moose-Meta-Method-Accessor-Native-Array-push-pm-410-line.html
+local_stuff/nytprof/Moose-Meta-Method-Accessor-Native-Array-set-pm-402-line.html
+local_stuff/nytprof/Moose-Meta-Method-Accessor-Native-Collection-pm-400-line.html
+local_stuff/nytprof/Moose-Meta-Method-Accessor-Native-Reader-pm-406-line.html
+local_stuff/nytprof/Moose-Meta-Method-Accessor-Native-Writer-pm-394-line.html
+local_stuff/nytprof/Moose-Meta-Method-Accessor-Native-pm-396-line.html
+local_stuff/nytprof/Moose-Meta-Method-Accessor-pm-140-line.html
+local_stuff/nytprof/Moose-Meta-Method-Augmented-pm-115-line.html
+local_stuff/nytprof/Moose-Meta-Method-Constructor-pm-123-line.html
+local_stuff/nytprof/Moose-Meta-Method-Delegation-pm-143-line.html
+local_stuff/nytprof/Moose-Meta-Method-Destructor-pm-126-line.html
+local_stuff/nytprof/Moose-Meta-Method-Meta-pm-129-line.html
+local_stuff/nytprof/Moose-Meta-Method-Overridden-pm-110-line.html
+local_stuff/nytprof/Moose-Meta-Method-pm-112-line.html
+local_stuff/nytprof/Moose-Meta-Mixin-AttributeCore-pm-235-line.html
+local_stuff/nytprof/Moose-Meta-Object-Trait-pm-114-line.html
+local_stuff/nytprof/Moose-Meta-Role-Application-RoleSummation-pm-258-line.html
+local_stuff/nytprof/Moose-Meta-Role-Application-ToClass-pm-260-line.html
+local_stuff/nytprof/Moose-Meta-Role-Application-ToInstance-pm-264-line.html
+local_stuff/nytprof/Moose-Meta-Role-Application-ToRole-pm-262-line.html
+local_stuff/nytprof/Moose-Meta-Role-Application-pm-257-line.html
+local_stuff/nytprof/Moose-Meta-Role-Attribute-pm-243-line.html
+local_stuff/nytprof/Moose-Meta-Role-Composite-pm-255-line.html
+local_stuff/nytprof/Moose-Meta-Role-Method-Conflicting-pm-250-line.html
+local_stuff/nytprof/Moose-Meta-Role-Method-Required-pm-248-line.html
+local_stuff/nytprof/Moose-Meta-Role-Method-pm-246-line.html
+local_stuff/nytprof/Moose-Meta-Role-pm-242-line.html
+local_stuff/nytprof/Moose-Meta-TypeCoercion-Union-pm-148-line.html
+local_stuff/nytprof/Moose-Meta-TypeCoercion-pm-137-line.html
+local_stuff/nytprof/Moose-Meta-TypeConstraint-Class-pm-155-line.html
+local_stuff/nytprof/Moose-Meta-TypeConstraint-DuckType-pm-161-line.html
+local_stuff/nytprof/Moose-Meta-TypeConstraint-Enum-pm-159-line.html
+local_stuff/nytprof/Moose-Meta-TypeConstraint-Parameterizable-pm-152-line.html
+local_stuff/nytprof/Moose-Meta-TypeConstraint-Parameterized-pm-151-line.html
+local_stuff/nytprof/Moose-Meta-TypeConstraint-Registry-pm-163-line.html
+local_stuff/nytprof/Moose-Meta-TypeConstraint-Role-pm-157-line.html
+local_stuff/nytprof/Moose-Meta-TypeConstraint-Union-pm-147-line.html
+local_stuff/nytprof/Moose-Meta-TypeConstraint-pm-134-line.html
+local_stuff/nytprof/Moose-Object-pm-240-line.html
+local_stuff/nytprof/Moose-Role-pm-362-line.html
+local_stuff/nytprof/Moose-Util-MetaRole-pm-107-line.html
+local_stuff/nytprof/Moose-Util-TypeConstraints-Builtins-pm-211-line.html
+local_stuff/nytprof/Moose-Util-TypeConstraints-pm-146-line.html
+local_stuff/nytprof/Moose-Util-pm-132-line.html
+local_stuff/nytprof/Moose-elements-pm-412-line.html
+local_stuff/nytprof/Moose-pm-30-line.html
+local_stuff/nytprof/MooseX-DoNotSerialize-pm-361-line.html
+local_stuff/nytprof/MooseX-Storage-Basic-pm-366-line.html
+local_stuff/nytprof/MooseX-Storage-Engine-pm-368-line.html
+local_stuff/nytprof/MooseX-Storage-IO-StorableFile-pm-377-line.html
+local_stuff/nytprof/MooseX-Storage-Meta-Attribute-DoNotSerialize-pm-358-line.html
+local_stuff/nytprof/MooseX-Storage-pm-355-line.html
+local_stuff/nytprof/Package-DeprecationManager-pm-56-line.html
+local_stuff/nytprof/Package-Stash-XS-pm-98-line.html
+local_stuff/nytprof/Package-Stash-pm-97-line.html
+local_stuff/nytprof/Params-Util-pm-40-line.html
+local_stuff/nytprof/Scalar-Util-pm-31-line.html
+local_stuff/nytprof/SelectSaver-pm-11-line.html
+local_stuff/nytprof/Storable-pm-379-line.html
+local_stuff/nytprof/String-RewritePrefix-pm-364-line.html
+local_stuff/nytprof/Sub-Exporter-Progressive-pm-95-line.html
+local_stuff/nytprof/Sub-Exporter-pm-108-line.html
+local_stuff/nytprof/Sub-Install-pm-44-line.html
+local_stuff/nytprof/Sub-Name-pm-50-line.html
+local_stuff/nytprof/Symbol-pm-10-line.html
+local_stuff/nytprof/Time-HiRes-pm-23-line.html
+local_stuff/nytprof/Try-Tiny-pm-47-line.html
+local_stuff/nytprof/Variable-Magic-pm-352-line.html
+local_stuff/nytprof/XSLoader-pm-479-line.html
+local_stuff/nytprof/all_stacks_by_time.calls
+local_stuff/nytprof/all_stacks_by_time.svg
+local_stuff/nytprof/base-pm-36-line.html
+local_stuff/nytprof/bytes-pm-473-line.html
+local_stuff/nytprof/constant-pm-53-line.html
+local_stuff/nytprof/examples-Atom-timer-pl-1-line.html
+local_stuff/nytprof/feature-pm-6-line.html
+local_stuff/nytprof/flamegraph_subattr.txt
+local_stuff/nytprof/if-pm-241-line.html
+local_stuff/nytprof/index-subs-excl.html
+local_stuff/nytprof/index.html
+local_stuff/nytprof/js/asc.png
+local_stuff/nytprof/js/bg.png
+local_stuff/nytprof/js/desc.png
+local_stuff/nytprof/js/jit/Treemap.css
+local_stuff/nytprof/js/jit/gradient-cushion1.png
+local_stuff/nytprof/js/jit/gradient.png
+local_stuff/nytprof/js/jit/gradient20.png
+local_stuff/nytprof/js/jit/gradient30.png
+local_stuff/nytprof/js/jit/gradient40.png
+local_stuff/nytprof/js/jit/gradient50.png
+local_stuff/nytprof/js/jit/jit-yc.js
+local_stuff/nytprof/js/jit/jit.js
+local_stuff/nytprof/js/jquery-min.js
+local_stuff/nytprof/js/jquery-tablesorter-min.js
+local_stuff/nytprof/js/style-tablesorter.css
+local_stuff/nytprof/lib-HackaMol-Atom-pm-29-line.html
+local_stuff/nytprof/lib-HackaMol-lib-PeriodicTable-pm-365-line.html
+local_stuff/nytprof/lib-pm-19-line.html
+local_stuff/nytprof/lib-roles-PhysVecRole-pm-380-line.html
+local_stuff/nytprof/metaclass-pm-135-line.html
+local_stuff/nytprof/mro-pm-5-line.html
+local_stuff/nytprof/namespace-autoclean-pm-349-line.html
+local_stuff/nytprof/namespace-clean-pm-354-line.html
+local_stuff/nytprof/overload-pm-41-line.html
+local_stuff/nytprof/overloading-pm-42-line.html
+local_stuff/nytprof/packages-callgraph.dot
+local_stuff/nytprof/re-pm-165-line.html
+local_stuff/nytprof/strict-pm-3-line.html
+local_stuff/nytprof/style.css
+local_stuff/nytprof/subs-callgraph.dot
+local_stuff/nytprof/subs-treemap-excl.html
+local_stuff/nytprof/vars-pm-21-line.html
+local_stuff/nytprof/warnings-pm-4-line.html
+local_stuff/nytprof/warnings-register-pm-22-line.html
+local_stuff/old/PhysVecRole.pm.old
+local_stuff/old/deprecated/AtomsGroupRoleDefAttrs.pm
+local_stuff/old/deprecated/PhysVecCodeRef.pm
+local_stuff/old/shit.pl
+local_stuff/old/unfold.pl
+shit.pdb
 t/000_load.t
 t/HackaMol-Angle.t
 t/HackaMol-Atom.t
