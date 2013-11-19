@@ -14,6 +14,31 @@ use Carp;
 
 with 'HackaMol::NameRole', 'HackaMol::MolReadRole';
 
+sub read_file_append_mol{
+    my $self = shift;
+    my $file = shift;
+    my $mol  = shift or croak "must pass molecule to add coords to";
+
+    my @atoms = $self->read_file_atoms($file);
+    my @matoms= $mol->all_atoms;
+    unless (scalar ($mol->all_atoms) == scalar(@atoms) ){
+      croak "number of atoms not same";
+    }
+    foreach my $i (0 .. $#atoms) {
+      croak "atom mismatch" unless ($matoms[$i]->Z == $atoms[$i]->Z); 
+      $matoms[$i]->push_coords($_) foreach ($atoms[$i]->all_coords);
+    }
+}
+
+sub read_file_mol{
+    my $self = shift;
+    my $file = shift;
+
+    my @atoms = $self->read_file_atoms($file);
+    my $name = $file . ".mol";
+    return (HackaMol::Molecule->new(name=>$name, atoms=>[@atoms]));
+}
+
 sub build_bonds {
 
     #take a list of n, atoms; walk down list and generate bonds
@@ -63,7 +88,7 @@ sub build_angles {
 sub _name_resid {
   my $atom    = shift;
   my $default = shift;
-  return ($default    . $atom->resid) unless $atom->has_name;
+  return ($default    . $atom->resid) unless $atom->has_name; # this comes up when undefined atoms are passed 
   return ($atom->name . $atom->resid);
 }
 
@@ -109,6 +134,18 @@ sub group_by_atom_attr {
 
     return (@atomgroups);
 
+}
+
+sub find_disulfides {
+    my $self  = shift;
+    my @sulf  = grep {$_->Z == 16} grep {$_->resname eq "CYS"} @_;
+    my @ss = $self->find_bonds_brute(
+                                     bond_atoms => [@sulf],
+                                     candidates => [@sulf],
+                                     fudge      => 0.45,
+                                     max_bonds  => 1,
+                                    );
+    return @ss;
 }
 
 sub find_bonds_brute {
@@ -178,7 +215,7 @@ HackaMol - HackaMol: Object-Oriented Library for Molecular Hacking
 
 =head1 VERSION
 
-version 0.00_05
+version 0.00_06
 
 =head1 SYNOPSIS
 
@@ -294,7 +331,7 @@ will return two dihedrals: D1356 and D3569
 
 =head2 group_by_atom_attr
 
-takes atom attribute as argument and builds AtomGroup objects by attribute.
+takes atom attribute and a list of atoms as arguments and builds AtomGroup objects by attribute.
 Grouping by graphical searches are needed! 
 
 =head2 find_bonds_brute 

@@ -27,6 +27,16 @@ has 'atoms' => (
     lazy => 1,
 );
 
+sub tmax {
+    # use coords to calculate tmax,which may be annoying if just interested in charges
+    my $self = shift;
+    return (0) unless $self->count_atoms;
+    my $t0   = $self->get_atoms(0)->count_coords;
+    my $tn   = $self->get_atoms($self->count_atoms - 1)->count_coords;
+    croak "not all atoms have same tmax" unless($t0 == $tn);
+    return ($t0-1);
+}
+
 sub dipole {
     my $self = shift;
     return ( V(0) ) unless ( $self->count_atoms );
@@ -203,9 +213,12 @@ sub print_pdb {
     my $fh = _open_file_unless_fh(shift);
 
     my @atoms = $self->all_atoms;
+    printf $fh ("MODEL       %2i\n",$atoms[0]->t+1); 
     foreach my $at (@atoms) {
+        
         printf $fh (
-            "%-6s%5i  %-3s%1s%3s%2s%4i%1s%11.3f%8.3f%8.3f%6.2f%6.2f%12s\n",
+            #"%-6s%5i  %-3s%1s%3s%2s%4i%1s%11.3f%8.3f%8.3f%6.2f%6.2f%12s\n",
+            "%-6s%5i %4s%1s%3s%2s%4i%1s%11.3f%8.3f%8.3f%6.2f%6.2f%12s\n",
             ( map{$at->$_} qw ( 
                               record_name 
                               serial 
@@ -221,6 +234,7 @@ sub print_pdb {
         );
 
     }
+    print $fh "ENDMDL\n"; 
     
     return ($fh);    # returns filehandle for future writing
 
@@ -260,7 +274,7 @@ HackaMol::AtomGroupRole - Role for a group of atoms
 
 =head1 VERSION
 
-version 0.00_05
+version 0.00_06
 
 =head1 SYNOPSIS
 
@@ -386,6 +400,10 @@ no arguments. returns the number of keys in each hash returned by bin_atoms
 
 no arguments. returns a string summary of the atoms in the group.  Take the bin_atoms hashes, sorts
 by Z and generates something like OH2 for water or O2H2 for peroxide.
+
+=head2 tmax
+
+return (count_coords-1) of first atom; checks that count_coords is same for first and last atoms
 
 =head2 translate
 

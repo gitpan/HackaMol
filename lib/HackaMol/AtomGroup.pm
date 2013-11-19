@@ -38,7 +38,7 @@ HackaMol::AtomGroup - HackaMol AtomGroup class
 
 =head1 VERSION
 
-version 0.00_05
+version 0.00_06
 
 =head1 SYNOPSIS
 

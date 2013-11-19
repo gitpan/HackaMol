@@ -35,15 +35,20 @@ sub read_pdb_atoms {
 
     my @atoms;
     my ( $n, $t ) = ( 0, 0 );
+    my $q_tbad = 0;
 
     while (<$fh>) {
 
         if (/^(?:MODEL\s+(\d+))/) {
-            $t = $1 - 1;
+            #$t = $1 - 1; # I don't like this!!  set increment t instead.. below
             $n = 0;
+            $q_tbad = 0; # flag a bad model and never read again!
+        }
+        elsif (/^(?:ENDMDL)/){
+            $t++;
         }
         elsif (/^(?:HETATM|ATOM)/) {
-
+            next if $q_tbad;
             my (
                 $record_name, $serial, $name, $altloc,  $resName,
                 $chainID,     $resSeq, $icod, $x,       $y,
@@ -81,10 +86,28 @@ sub read_pdb_atoms {
                 );
             }
             else {
-                croak "atoms have changed from last model to current: $t\n"
-                  if ( $name ne $atoms[$n]->name
-                    or $element ne $atoms[$n]->symbol );
-
+                #croak condition if atom changes between models
+                if ( $name ne $atoms[$n]->name
+                    or $element ne $atoms[$n]->symbol ) {
+                  my $carp_message  = "atom $n at t0 " 
+                                       ."name: ".$atoms[$n]->name." "
+                                       ."serial: ".$atoms[$n]->serial." "
+                                       ."resname:".$atoms[$n]->resname." "
+                                       ."symbol: ".$atoms[$n]->symbol." "
+                                       ."\n";
+                     $carp_message .= "atom $n at $t "
+                                       ."name: $name " 
+                                       ."serial: $serial "
+                                       ."resname:$resName " 
+                                       ."symbol: $element "
+                                       ."\n";
+                  chomp;
+                  carp  "BAD t->$t PDB Atom $n has changed"; # $carp_message;
+                  $q_tbad = $t; # this is a bad model!
+                  #wipe out all the coords prior
+                  $atoms[$_]->delete_coords($t) foreach 0 .. $n-1; 
+                  next;
+                }
                 $atoms[$n]->set_coords( $t, $xyz );
             }
             $n++;
@@ -128,11 +151,11 @@ sub read_xyz_atoms {
             if ( $t == 0 ) {
                 if ( $sym =~ /\d/ ) {
                     $atoms[$n] =
-                      HackaMol::Atom->new( Z => $sym, coords => [$xyz] );
+                      HackaMol::Atom->new(name=> "at$n", Z => $sym, coords => [$xyz] );
                 }
                 else {
                     $atoms[$n] =
-                      HackaMol::Atom->new( symbol => $sym, coords => [$xyz] );
+                      HackaMol::Atom->new(name=> "at$n", symbol => $sym, coords => [$xyz] );
                 }
             }
             else {
@@ -188,7 +211,7 @@ HackaMol::MolReadRole - Read XYZ and PDB files
 
 =head1 VERSION
 
-version 0.00_05
+version 0.00_06
 
 =head1 SYNOPSIS
 

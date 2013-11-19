@@ -18,12 +18,13 @@ has "$_" => (
     isa     => 'ArrayRef[Math::Vector::Real]',
     default => sub { [] },
     handles => {
-        "push_$_"  => 'push',
-        "get_$_"   => 'get',
-        "set_$_"   => 'set',
-        "all_$_"   => 'elements',
-        "clear_$_" => 'clear',
-        "count_$_" => 'count',
+        "push_$_"   => 'push',
+        "get_$_"    => 'get',
+        "delete_$_" => 'delete',
+        "set_$_"    => 'set',
+        "all_$_"    => 'elements',
+        "clear_$_"  => 'clear',
+        "count_$_"  => 'count',
     },
     lazy => 1,
 ) for qw(coords forces);
@@ -34,12 +35,13 @@ has "$_" => (
     isa     => 'ArrayRef[Num]',
     default => sub { [] },
     handles => {
-        "push_$_"  => 'push',
-        "get_$_"   => 'get',
-        "set_$_"   => 'set',
-        "all_$_"   => 'elements',
-        "clear_$_" => 'clear',
-        "count_$_" => 'count',
+        "push_$_"   => 'push',
+        "get_$_"    => 'get',
+        "delete_$_" => 'delete',
+        "set_$_"    => 'set',
+        "all_$_"    => 'elements',
+        "clear_$_"  => 'clear',
+        "count_$_"  => 'count',
     },
     lazy => 1,
 ) for qw(charges);
@@ -326,7 +328,7 @@ HackaMol::PhysVecMVRRole - Provides the core of HackaMol Atom and Molecule class
 
 =head1 VERSION
 
-version 0.00_05
+version 0.00_06
 
 =head1 SYNOPSIS
 
@@ -496,7 +498,7 @@ at a single set of coordinates.
 
 =head2 push_$_, all_$_, get_$_, set_$_, count_$_, clear_$_ foreach qw(charges coords forces)
 
-ARRAY traits, respectively: push, get, set, all, elements, clear
+ARRAY traits, respectively: push, get, set, all, elements, delete, clear
   Descriptions for charges and coords follows.  forces analogous to coords.
 
 =head2 push_charges
@@ -529,6 +531,14 @@ set value of element by index from charges array
 return number of elements in charges array
 
     print $obj->count_charges; # prints 4 
+
+=head2 delete_charges($index)
+
+    Removes the element at the given index from the array.
+
+    This method returns the deleted value. Note that if no value exists, it will return undef.
+
+    This method requires one argument.
 
 =head2 clear_charges
 
@@ -572,6 +582,20 @@ set value of element by index from coords array
 return number of elements in coords array
 
     print $obj->count_coords; # prints 4 
+
+=head2 delete_coords($index)
+
+    Removes the element at the given index from the array.
+
+    This method returns the deleted value. Note that if no value exists, it will return undef.
+
+    This method requires one argument.
+
+clears coords array
+
+    $obj->clear_coords;
+    print $_ . " " foreach $obj->all_coords; # does nothing 
+    print $obj->count_coords # prints 0
 
 =head2 clear_coords
 
