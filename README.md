@@ -4,10 +4,10 @@ Object-Oriented Perl 5, Moose Library for Molecular Hacking on multiple scales
 
 VERSION
 ========
-developer version 0.00_05 
+developer version 0.00_06 
 Available for testing from cpan.org:
        
-please see *[HackaMol on MetaCPAN](https://metacpan.org/release/DEMIAN/HackaMol-0.00_05) or [CPAN](http://search.cpan.org/~demian/HackaMol-0.00_05/lib/HackaMol.pm)* for formatted documentation.  
+please see *[HackaMol on MetaCPAN](https://metacpan.org/release/DEMIAN/HackaMol-0.00_06) or [CPAN](http://search.cpan.org/~demian/HackaMol-0.00_06/lib/HackaMol.pm)* for formatted documentation.  
        
 SYNOPSIS
 ========
@@ -97,7 +97,9 @@ molecular object system organizes atoms within molecules using groups, bonds,
 angles, and dihedrals.  HackaMol seeks to provide intuitive attributes and 
 methods that may be harnessed to coerce computational chemistry through a 
 common core. The library is inspired by 
-*[PerlMol](http://www.perlmol.org)*, *[BioPerl](http://bioperl.org)*, *[MMTSB](http://www.mmtsb.org)*, and my own experiences as a researcher. 
+*[PerlMol](http://www.perlmol.org)*, *[BioPerl](http://bioperl.org)*, *[MMTSB](http://www.mmtsb.org)*, 
+and my own experiences as a researcher.  A goal of this library is to reduce
+the "viscosity" of setting up computations and managing data.
        
 The library is organized into two regions: HackaMol, the core (contained 
 here) that has classes for atoms and molecules, and HackaMolX, the 
@@ -124,7 +126,7 @@ With cpanminus installed, you will be able to install HackaMol from the commandl
        
 once it is officially released. For now, you can install the developer release. Again with cpanminus:
        
-       cpanm DEMIAN/HackaMol-0.00_05.tar.gz
+       cpanm DEMIAN/HackaMol-0.00_06.tar.gz
        
 I would love for people to give it a spin with the examples. I will use feedback to make improvements 
 in the near future.

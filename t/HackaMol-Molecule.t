@@ -26,7 +26,7 @@ map can_ok( 'HackaMol::Molecule', $_ ), @methods;
 map does_ok( 'HackaMol::Molecule', $_ ), @roles;
 
 my $hack  = HackaMol->new(name => "hackitup");
-my @atoms = $hack->read_file_atoms("t/lib/2LL5.pdb"); 
+my @atoms = $hack->read_file_atoms("t/lib/2LL5_mod123.pdb"); 
 
 my $max_t = $atoms[0]->count_coords - 1;
 
@@ -84,16 +84,6 @@ foreach my $t ( 0 .. $max_t ) {
     cmp_ok( abs( $mol->Rg - $Rgt[$t] ), '<', 1E-7, "Rg at $t" );
 }
 
-#$mol->push_groups_by_atom_attr('resid');
-#is( $mol->count_groups, 22, "group_by_atom_resid yields 22 groups" );
-#$mol->clear_groups;
-#is( $mol->count_groups, 0, "clear->groups yields 0 groups" );
-#$mol->push_groups_by_atom_attr('symbol');
-#is( $mol->count_groups, 4, "group_by_atom_symbol yields 4 (ONCH) groups" );
-#$mol->clear_groups;
-#$mol->push_groups_by_atom_attr('name');
-#is( $mol->count_groups, 60, "group_by_atom_name yields 60 groups" );
-
 my @bonds =
   map {HackaMol::Bond->new( atoms => [ $atoms[0], $atoms[$_] ] ) } 1 .. $#atoms;
 $mol->push_bonds(@bonds);
@@ -103,6 +93,7 @@ my $bond_count = 0;
 $bond_count += $_->bond_count foreach $mol->all_atoms;
 is( $bond_count, 2 * $#atoms, "total double-counted bond count" );
 
+$mol->t(0);
 my @ncord =
   grep { $_->bond_length < 5.0 and $_->bond_length > 0.0 } $mol->all_bonds;
 foreach my $bond (@ncord) {
@@ -110,7 +101,7 @@ foreach my $bond (@ncord) {
         $mol->t, "atoms in bond time and mol time are same" );
 }
 
-is( scalar(@ncord), 23, "23 atoms within 5 angstroms of first atom" );
+is( scalar(@ncord), 21, "21 atoms within 5 angstroms of first atom" );
 
 $mol->clear_bonds;
 $bond_count = 0;

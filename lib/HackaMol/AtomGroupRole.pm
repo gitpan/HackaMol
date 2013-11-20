@@ -274,7 +274,7 @@ HackaMol::AtomGroupRole - Role for a group of atoms
 
 =head1 VERSION
 
-version 0.00_06
+version 0.00_07
 
 =head1 SYNOPSIS
 
