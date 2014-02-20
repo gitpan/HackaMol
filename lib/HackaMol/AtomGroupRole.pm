@@ -162,6 +162,7 @@ sub translate {
     my $tf   = shift;
 
     my @atoms = $self->all_atoms;
+    do{carp "no atoms to translate"; return} unless (@atoms);
     $tf = $atoms[0]->t unless ( defined($tf) );
 
     foreach my $at (@atoms) {
@@ -218,7 +219,8 @@ sub print_pdb {
         
         printf $fh (
             #"%-6s%5i  %-3s%1s%3s%2s%4i%1s%11.3f%8.3f%8.3f%6.2f%6.2f%12s\n",
-            "%-6s%5i %4s%1s%3s%2s%4i%1s%11.3f%8.3f%8.3f%6.2f%6.2f%12s\n",
+            #      12         21         
+            "%-6s%5i %-4s%1s%3s %1s%4i%1s   %8.3f%8.3f%8.3f%6.2f%6.2f      %4s%2s\n",
             ( map{$at->$_} qw ( 
                               record_name 
                               serial 
@@ -230,7 +232,7 @@ sub print_pdb {
                               icode
                             )
             ), @{ $at->get_coords( $at->t ) },
-            $at->occ, $at->bfact, $at->symbol, $at->charge
+            $at->occ, $at->bfact, $at->segid,$at->symbol,# $at->charge
         );
 
     }
@@ -274,7 +276,7 @@ HackaMol::AtomGroupRole - Role for a group of atoms
 
 =head1 VERSION
 
-version 0.00_07
+version 0.00_08
 
 =head1 SYNOPSIS
 

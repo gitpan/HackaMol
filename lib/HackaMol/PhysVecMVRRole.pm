@@ -328,7 +328,7 @@ HackaMol::PhysVecMVRRole - Provides the core of HackaMol Atom and Molecule class
 
 =head1 VERSION
 
-version 0.00_07
+version 0.00_08
 
 =head1 SYNOPSIS
 

@@ -67,7 +67,7 @@ sub _build_torsion_energy_func {
 
 sub torsion_energy {
     my $self = shift;
-    return (0) unless ( $self->dihe_fc > 0 );
+    return (0) unless ( $self->dihe_fc > 0 ); # necessary?
     my $energy = &{ $self->torsion_energy_func }( $self, @_ );
     return ($energy);
 }
@@ -93,7 +93,7 @@ HackaMol::Dihedral - Dihedral Angle class for HackaMol
 
 =head1 VERSION
 
-version 0.00_07
+version 0.00_08
 
 =head1 SYNOPSIS
 

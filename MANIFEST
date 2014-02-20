@@ -20,11 +20,9 @@ examples/graphene_roll.pl
 examples/hackamol_synopsis.pl
 examples/heavy_mvr.pl
 examples/lazy_attr.pl
-examples/oxy_ball.pl
-examples/oxy_ball2.pl
-examples/oxy_ball_mc.pl
 examples/refaddr_mvr.pl
 examples/spinning_ball.pl
+examples/strip_tip_rename_his.pl
 examples/two_molecules.pl
 examples/unfoldBB_mol.pl
 examples/unfoldBB_movie.pl
@@ -46,6 +44,8 @@ lib/HackaMol/PhysVecMVRRole.pm
 lib/HackaMol/QmAtomRole.pm
 lib/HackaMol/QmMolRole.pm
 lib/HackaMol/References.pm
+lib/quick.pl
+shit.pdb
 t/000_load.t
 t/HackaMol-Angle.t
 t/HackaMol-Atom.t
@@ -61,6 +61,7 @@ t/HackaMol.t
 t/HackaMol_Hgbonds.t
 t/lib/1L2Y.xyz
 t/lib/1L2Y_mod123.pdb
+t/lib/1L2Y_noelem.pdb
 t/lib/1V0Z_A.pdb
 t/lib/2LL5_mod123.pdb
 t/lib/Hg.2-18w.xyz

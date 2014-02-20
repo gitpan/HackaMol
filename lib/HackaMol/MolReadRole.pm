@@ -4,6 +4,7 @@ package HackaMol::MolReadRole;
 use Moose::Role;
 use Carp;
 use Math::Vector::Real;
+use HackaMol::PeriodicTable qw(%KNOWN_NAMES);
 use FileHandle;
 
 sub read_file_atoms {
@@ -28,9 +29,6 @@ sub read_pdb_atoms {
     #read pdb file and generate list of Atom objects
     my $self  = shift;
     my $file  = shift;
-    my $segid = $file;
-    $segid =~ s/\.pdb//;
-    $segid =~ s/t\/lib\///;
     my $fh = FileHandle->new("<$file") or croak "unable to open $file";
 
     my @atoms;
@@ -52,21 +50,25 @@ sub read_pdb_atoms {
             my (
                 $record_name, $serial, $name, $altloc,  $resName,
                 $chainID,     $resSeq, $icod, $x,       $y,
-                $z,           $occ,    $B,    $element, $charge
-            ) = unpack "A6A5x1A4A1A3x1A1A4A1x3A8A8A8A6A6x10A2A2", $_;
+                $z,           $occ,    $B,    $segID,   $element, $charge
+            ) = unpack "A6A5x1A4A1A3x1A1A4A1x3A8A8A8A6A6x6A4A2A2", $_;
 
             if   ( $charge =~ m/\d/ ) { $charge = _qstring_num($charge) }
             else                      { $charge = 0 }
 
             if   ( $chainID =~ m/\w/ ) { $chainID = uc( _trim($chainID) ) }
-            else                       { $chainID = 'AA' }
+            else                       { $chainID = ' ' }
 
-            $element = ucfirst( lc( _trim($element) ) );
+            
             $name    = _trim($name);
             $resName = _trim($resName);
             $resSeq  = _trim($resSeq);
             $resSeq  = 0 if ( $resSeq < 0 );
             $serial  = _trim($serial);
+            $segID   = _trim($segID);
+  
+            $element = ucfirst( lc( _trim($element) ) );
+            $element = _element_name($name) unless ($element =~ /\w+/);
             my $xyz = V( $x, $y, $z );
 
             if ( $t == 0 ) {
@@ -82,6 +84,7 @@ sub read_pdb_atoms {
                     bfact       => $B * 1,
                     resname     => $resName,
                     resid       => $resSeq,
+                    segid       => $segID ,
                     altloc      => $altloc,
                 );
             }
@@ -115,9 +118,6 @@ sub read_xyz_atoms {
     #read pdb file and generate list of Atom objects
     my $self  = shift;
     my $file  = shift;
-    my $segid = $file;
-    $segid =~ s/\.xyz//;
-    $segid =~ s/t\/lib\///;
     my $fh = FileHandle->new("<$file") or croak "unable to open $file";
 
     my @atoms;
@@ -177,6 +177,7 @@ sub _trim {
     return $string;
 }
 
+
 sub _qstring_num {
 
     # _qstring something like 2+  or 2-
@@ -186,6 +187,16 @@ sub _qstring_num {
     $string = sprintf( "%g", $string );
     return $string;
 
+}
+
+sub _element_name{
+# guess the element using the atom name
+  my $name = uc(shift);
+  unless (exists($KNOWN_NAMES{$name})){
+    carp "$name doesn not exist in HackaMol::PeriodicTable, if common please add to KNOWN_NAMES";
+    return (substr $name, 0,1);
+  }
+  return ($KNOWN_NAMES{$name});
 }
 
 no Moose::Role;
@@ -202,7 +213,7 @@ HackaMol::MolReadRole - Read XYZ and PDB files
 
 =head1 VERSION
 
-version 0.00_07
+version 0.00_08
 
 =head1 SYNOPSIS
 

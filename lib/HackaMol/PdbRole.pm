@@ -6,12 +6,12 @@ use Moose::Role;
 has 'record_name', is => 'rw', isa => 'Str', lazy => 1, default => 'HETATM';
 has 'occ',         is => 'rw', isa => 'Num', lazy => 1, default => 1.0;
 has 'bfact',       is => 'rw', isa => 'Num', lazy => 1, default => 20.0;
-has 'resname',     is => 'rw', isa => 'Str', lazy => 1, default => 'ALA';
-has 'chain',       is => 'rw', isa => 'Str', lazy => 1, default => '  ';
+has 'resname',     is => 'rw', isa => 'Str', lazy => 1, default => ' ';
+has 'chain',       is => 'rw', isa => 'Str', lazy => 1, default => ' ';
 has 'altloc',      is => 'rw', isa => 'Str', lazy => 1, default => ' ';
 has 'icode',       is => 'rw', isa => 'Str', lazy => 1, default => ' ';
-has 'pdbid',       is => 'rw', isa => 'Str', lazy => 1, default => '2CBA';
-has 'segid',       is => 'rw', isa => 'Str', lazy => 1, default => 'TIP3';
+has 'pdbid',       is => 'rw', isa => 'Str', lazy => 1, default => ' ';
+has 'segid',       is => 'rw', isa => 'Str', lazy => 1, default => ' ';
 
 has "$_" =>  ( 
                   is        => 'rw', 
@@ -83,7 +83,7 @@ HackaMol::PdbRole - PdbRole of lazy attributes for HackaMol atoms
 
 =head1 VERSION
 
-version 0.00_07
+version 0.00_08
 
 =head1 SYNOPSIS
 
@@ -141,7 +141,7 @@ pdb cols 18-20: residue name. defaults to 'ALA'
 
 =head2 chain        
 
-pdb cols 22. protein chain.  default = 'AA'
+pdb cols 22. protein chain.  default = '  '
 
 =head2 resid        
 
