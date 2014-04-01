@@ -215,7 +215,7 @@ HackaMol - HackaMol: Object-Oriented Library for Molecular Hacking
 
 =head1 VERSION
 
-version 0.00_08
+version 0.00_09
 
 =head1 SYNOPSIS
 
@@ -426,7 +426,7 @@ Demian Riccardi <demianriccardi@gmail.com>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2013 by Demian Riccardi.
+This software is copyright (c) 2014 by Demian Riccardi.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

@@ -529,6 +529,7 @@ $KNOWN_NAMES{$_} = 'O' foreach qw(O OD1 OD2 OE1 OE2 OG OG1 OH OT1 OT2 OH2);
 $KNOWN_NAMES{$_} = 'S' foreach qw(S SD SG);
 $KNOWN_NAMES{$_} = 'Cl' foreach qw(CLA);
 $KNOWN_NAMES{$_} = 'Na' foreach qw(SOD);
+$KNOWN_NAMES{$_} = 'K'  foreach qw(POT);
 
 1;
 
@@ -542,7 +543,7 @@ HackaMol::PeriodicTable
 
 =head1 VERSION
 
-version 0.00_08
+version 0.00_09
 
 =head1 EXTENDS
 
@@ -558,7 +559,7 @@ Demian Riccardi <demianriccardi@gmail.com>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2013 by Demian Riccardi.
+This software is copyright (c) 2014 by Demian Riccardi.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

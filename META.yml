@@ -5,7 +5,7 @@ author:
 build_requires:
   Cwd: 0
   File::Slurp: 0
-  Math::Vector::Real::Random: 0
+  Math::Vector::Real::Random: 0.03
   Test::Fatal: 0
   Test::Moose: 0
   Test::More: 0
@@ -17,7 +17,7 @@ build_requires:
 configure_requires:
   ExtUtils::MakeMaker: 6.30
 dynamic_config: 0
-generated_by: 'Dist::Zilla version 4.300038, CPAN::Meta::Converter version 2.131560'
+generated_by: 'Dist::Zilla version 5.014, CPAN::Meta::Converter version 2.131560'
 license: perl
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
@@ -37,4 +37,4 @@ requires:
   Scalar::Util: 0
   namespace::autoclean: 0
   perl: 5.008
-version: 0.00_08
+version: 0.00_09

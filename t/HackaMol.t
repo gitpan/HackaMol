@@ -130,6 +130,9 @@ is( $hack->name, "hackitup", "HackaMol name attr" );
     warning_is { $hack->read_file_atoms("t/lib/bad2.pdb") }
     "BAD t->1 PDB Atom 1 serial 2 resname ASN has changed",
       "carp warning for bad model in pdb file";
+
+    dies_ok { $hack->read_file_append_mol("bah.xyz") } "append_mol";
+
 }
 
 {    # read xyz filed with different but same representations
@@ -146,6 +149,14 @@ my $mol1 = $hack->read_file_mol("t/lib/1L2Y_mod123.pdb");
 is( $mol1->tmax, 2, "index of last coords for each atom" );
 $hack->read_file_append_mol( "t/lib/1L2Y_mod123.pdb", $mol1 );
 is( $mol1->tmax, 5, "index of last coords for each atom after append" );
+dies_ok{$hack->read_file_append_mol( "Hg.2-18w.xyz", $mol1 )} 
+  "can not append if number of atoms are different" ;
+{
+  my $mol = $hack->read_file_mol("t/lib/Hg.2-18w.xyz");
+  dies_ok{$hack->read_file_append_mol("Zn.2-18w.xyz", $mol)}
+  "can not append if atoms are different";
+}
+
 
 #test group generation
 my @gresids = $hack->group_by_atom_attr( 'resid',  $mol1->all_atoms );
@@ -233,19 +244,29 @@ dies_ok { $hack->build_angles( @bb[ 0, 1 ] ) } "build_angles croak";
     # $mol2->print_xyz;
 }
 
-{    # guess element from name
-    my @lsymbols;
-    warning_is {
-        @lsymbols =
-          map { $_->symbol } $hack->read_file_atoms("t/lib/1L2Y_noelem.pdb");
-    }
-    "HXXX doesn not exist in HackaMol::PeriodicTable, if common please add to KNOWN_NAMES",
-    "carp if name unknown for element";
+{    # guess element from name make them dirty if don't exist in lookup
+    my @atoms;
+    warning_is { @atoms = $hack->read_file_atoms("t/lib/1L2Y_noelem.pdb")}
+    "MolReadRole> found 2 dirty atoms. check symbols and lookup names",
+      "warning for dirty atoms";
 
+    my @lsymbols = map { $_->symbol } @atoms;
+    
+    my @dirty = grep {$_->is_dirty} @atoms;
+    is (scalar(@dirty),2, "2 dirty atoms");  
     my @esymbols = qw(N C C O C C O N H H H H H H H H N C C O C C
       C C H H H H H H H H H H H H);
     is_deeply( \@lsymbols, \@esymbols, "symbols set from names" );
 
+}
+
+{ # pdbqt reading tests
+    my @atoms;
+    warning_is { @atoms = $hack->read_file_atoms("t/lib/test.pdbqt")}
+    "MolReadRole> found 27 dirty atoms. check symbols and lookup names",
+      "warning for dirty atoms";
+    my $mol = HackaMol::Molecule->new(name=>"drugs", atoms=>[@atoms]);
+    is ($mol->tmax, 8, "9 models in  test.pdbqt")
 }
 
 done_testing();

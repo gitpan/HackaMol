@@ -28,12 +28,14 @@ has 'atoms' => (
 );
 
 sub tmax {
+    # not the best implementation! what about atoms without coords?
+    # comparing first and last?  really?!  
     # use coords to calculate tmax,which may be annoying if just interested in charges
     my $self = shift;
     return (0) unless $self->count_atoms;
     my $t0   = $self->get_atoms(0)->count_coords;
     my $tn   = $self->get_atoms($self->count_atoms - 1)->count_coords;
-    croak "not all atoms have same tmax" unless($t0 == $tn);
+    croak "first and last atoms no tmax" unless($t0 == $tn);
     return ($t0-1);
 }
 
@@ -276,7 +278,7 @@ HackaMol::AtomGroupRole - Role for a group of atoms
 
 =head1 VERSION
 
-version 0.00_08
+version 0.00_09
 
 =head1 SYNOPSIS
 
@@ -506,7 +508,7 @@ Demian Riccardi <demianriccardi@gmail.com>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2013 by Demian Riccardi.
+This software is copyright (c) 2014 by Demian Riccardi.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
