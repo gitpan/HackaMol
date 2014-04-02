@@ -210,7 +210,7 @@ HackaMol::Molecule - Molecule class for HackaMol
 
 =head1 VERSION
 
-version 0.00_09
+version 0.00_10
 
 =head1 SYNOPSIS
 

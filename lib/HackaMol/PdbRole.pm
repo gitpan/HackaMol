@@ -83,7 +83,7 @@ HackaMol::PdbRole - PdbRole of lazy attributes for HackaMol atoms
 
 =head1 VERSION
 
-version 0.00_09
+version 0.00_10
 
 =head1 SYNOPSIS
 

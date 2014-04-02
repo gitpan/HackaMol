@@ -65,7 +65,7 @@ HackaMol::QmMolRole - provides attributes needed for quantum chemistry calculati
 
 =head1 VERSION
 
-version 0.00_09
+version 0.00_10
 
 =head1 SYNOPSIS
 
