@@ -177,6 +177,7 @@ sub read_pdbqt_atoms {
             $ADTtype = _trim($ADTtype);
   
             my ($element,$qdirt) = _element_name($ADTtype);
+            $element = 'C' if ($element eq 'A'); #aromatic, is this dirty?
             $something_dirty++ if ($qdirt); 
             my $xyz = V( $x, $y, $z );
 
@@ -328,7 +329,7 @@ HackaMol::MolReadRole - Read XYZ and PDB files
 
 =head1 VERSION
 
-version 0.00_10
+version 0.00_11
 
 =head1 SYNOPSIS
 

@@ -215,7 +215,7 @@ HackaMol - HackaMol: Object-Oriented Library for Molecular Hacking
 
 =head1 VERSION
 
-version 0.00_10
+version 0.00_11
 
 =head1 SYNOPSIS
 

@@ -37,4 +37,4 @@ requires:
   Scalar::Util: 0
   namespace::autoclean: 0
   perl: 5.008
-version: 0.00_10
+version: 0.00_11
