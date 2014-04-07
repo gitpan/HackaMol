@@ -93,7 +93,7 @@ HackaMol::Dihedral - Dihedral Angle class for HackaMol
 
 =head1 VERSION
 
-version 0.00_11
+version 0.00_12
 
 =head1 SYNOPSIS
 
