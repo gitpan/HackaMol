@@ -5,9 +5,10 @@ use 5.008;
 use Moose;
 use namespace::autoclean;
 use Carp;
-use MooseX::Storage;
-with Storage( 'io' => 'StorableFile' ), 'HackaMol::NameRole',
-  'HackaMol::AtomGroupRole';
+use MooseX::StrictConstructor;
+#use MooseX::Storage;
+#with Storage( 'io' => 'StorableFile' ), 
+with 'HackaMol::NameRole', 'HackaMol::AtomGroupRole';
 
 sub Rg {
 
@@ -38,7 +39,7 @@ HackaMol::AtomGroup - HackaMol AtomGroup class
 
 =head1 VERSION
 
-version 0.00_12
+version 0.00_13
 
 =head1 SYNOPSIS
 
@@ -115,11 +116,7 @@ L<HackaMol::AtomGroupRole>
 
 =item * L<HackaMol::NameRole>
 
-=item * L<MooseX::Storage::Basic>
-
-=item * L<MooseX::Storage::Basic|MooseX::Storage::IO::StorableFile|HackaMol::NameRole|HackaMol::AtomGroupRole>
-
-=item * L<MooseX::Storage::IO::StorableFile>
+=item * L<HackaMol::NameRole|HackaMol::AtomGroupRole>
 
 =back
 

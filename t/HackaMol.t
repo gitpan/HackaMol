@@ -60,9 +60,9 @@ use HackaMol;
     my $group =
       HackaMol::AtomGroup->new( name => 'biggroup', atoms => [@atoms] );
     my $mol = HackaMol::Molecule->new(
-        name   => 'bg_mol',
-        atoms  => [ $group->all_atoms ],
-        groups => [$group]
+        name       => 'bg_mol',
+        atoms      => [ $group->all_atoms ],
+        atomgroups => [ $group ]
     );
 
     is( $group->count_atoms, $natoms, "group atom count: $natoms" );
@@ -247,8 +247,14 @@ dies_ok { $hack->build_angles( @bb[ 0, 1 ] ) } "build_angles croak";
 {    # guess element from name make them dirty if don't exist in lookup
     my @atoms;
     warning_is { @atoms = $hack->read_file_atoms("t/lib/1L2Y_noelem.pdb")}
-    "MolReadRole> found 2 dirty atoms. check symbols and lookup names",
+    "MolReadRole> found 2 dirty atoms. Check symbols and lookup names",
       "warning for dirty atoms";
+    # no warning... 
+    is ($hack->hush_read, 0, 'hush_read off');
+    $hack->hush_read(1);
+    is ($hack->hush_read, 1, 'hush_read on');
+     
+    my @watoms = $hack->read_file_atoms("t/lib/1L2Y_noelem.pdb");
 
     my @lsymbols = map { $_->symbol } @atoms;
     
@@ -262,8 +268,9 @@ dies_ok { $hack->build_angles( @bb[ 0, 1 ] ) } "build_angles croak";
 
 { # pdbqt reading tests
     my @atoms;
+    my $hack = HackaMol->new;
     warning_is { @atoms = $hack->read_file_atoms("t/lib/test.pdbqt")}
-    "MolReadRole> found 27 dirty atoms. check symbols and lookup names",
+    "MolReadRole> found 27 dirty atoms. Check symbols and lookup names",
       "warning for dirty atoms";
     my $mol = HackaMol::Molecule->new(name=>"drugs", atoms=>[@atoms]);
     is ($mol->tmax, 8, "9 models in  test.pdbqt")

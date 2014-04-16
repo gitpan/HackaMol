@@ -7,6 +7,13 @@ use Math::Vector::Real;
 use HackaMol::PeriodicTable qw(%KNOWN_NAMES);
 use FileHandle;
 
+has 'hush_read' => (
+    is      => 'rw',
+    isa     => 'Bool',
+    lazy    => 1,
+    default => 0,   
+); 
+
 sub read_file_atoms {
     my $self = shift;
     my $file = shift;
@@ -119,8 +126,13 @@ sub read_pdb_atoms {
 
     # set iatom to track the array.  diff from serial which refers to pdb
     $atoms[$_]->iatom($_) foreach ( 0 .. $#atoms );
-    carp "MolReadRole> found $something_dirty dirty atoms. check symbols and lookup names"
-      if ($something_dirty);
+    if ($something_dirty){
+      unless($self->hush_read){
+        my $message = "MolReadRole> found $something_dirty dirty atoms. ";
+        $message .= "Check symbols and lookup names";
+        carp $message;
+      }
+    }
     return (@atoms);
 }
 
@@ -221,8 +233,13 @@ sub read_pdbqt_atoms {
 
     # set iatom to track the array.  diff from serial which refers to pdb
     $atoms[$_]->iatom($_) foreach ( 0 .. $#atoms );
-    carp "MolReadRole> found $something_dirty dirty atoms. check symbols and lookup names"
-      if ($something_dirty);
+    if ($something_dirty){
+      unless($self->hush_read){
+        my $message = "MolReadRole> found $something_dirty dirty atoms. ";
+        $message .= "Check symbols and lookup names";
+        carp $message; 
+      }
+    }  
     return (@atoms);
 }
 
@@ -329,7 +346,7 @@ HackaMol::MolReadRole - Read XYZ and PDB files
 
 =head1 VERSION
 
-version 0.00_12
+version 0.00_13
 
 =head1 SYNOPSIS
 
@@ -371,6 +388,12 @@ HackaMol::PeriodicTable is improved. See TODO.
 
 takes the name of the file as input, parses the xyz file to return the list of built 
 Atom objects.  
+
+=head1 ATTRIBUTES
+
+=head2 hush_read
+
+isa Bool that is lazy. $hack->hush_read(1) will quiet some warnings that may be ignored under some instances.
 
 =head1 SEE ALSO
 

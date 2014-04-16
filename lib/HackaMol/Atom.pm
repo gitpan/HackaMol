@@ -5,9 +5,10 @@ use 5.008;
 use Moose;
 use namespace::autoclean;
 use Carp;
-use MooseX::Storage;
-with Storage( 'io' => 'StorableFile' ),
-  'HackaMol::NameRole', 'HackaMol::PhysVecMVRRole',
+use MooseX::StrictConstructor;
+#use MooseX::Storage;
+#with Storage( 'io' => 'StorableFile' ),
+with  'HackaMol::NameRole', 'HackaMol::PhysVecMVRRole',
   'HackaMol::PdbRole',  'HackaMol::QmAtomRole';
 use HackaMol::PeriodicTable
   qw(@ELEMENTS %ELEMENTS %ATOMIC_MASSES @COVALENT_RADII @VDW_RADII %ATOM_MULTIPLICITY);
@@ -175,7 +176,7 @@ HackaMol::Atom - HackaMol Atom Class
 
 =head1 VERSION
 
-version 0.00_12
+version 0.00_13
 
 =head1 SYNOPSIS
 
@@ -314,17 +315,13 @@ L<Chemistry::Atom>
 
 =item * L<HackaMol::NameRole>
 
+=item * L<HackaMol::NameRole|HackaMol::PhysVecMVRRole|HackaMol::PdbRole|HackaMol::QmAtomRole>
+
 =item * L<HackaMol::PdbRole>
 
 =item * L<HackaMol::PhysVecMVRRole>
 
 =item * L<HackaMol::QmAtomRole>
-
-=item * L<MooseX::Storage::Basic>
-
-=item * L<MooseX::Storage::Basic|MooseX::Storage::IO::StorableFile|HackaMol::NameRole|HackaMol::PhysVecMVRRole|HackaMol::PdbRole|HackaMol::QmAtomRole>
-
-=item * L<MooseX::Storage::IO::StorableFile>
 
 =back
 

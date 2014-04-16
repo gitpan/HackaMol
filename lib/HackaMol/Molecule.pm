@@ -7,9 +7,10 @@ use namespace::autoclean;
 use Carp;
 use Math::Trig;
 use Scalar::Util qw(refaddr);
-use MooseX::Storage;
-with Storage( 'io' => 'StorableFile' ), 'HackaMol::NameRole',
-  'HackaMol::PhysVecMVRRole',
+use MooseX::StrictConstructor;
+#use MooseX::Storage;
+#with Storage( 'io' => 'StorableFile' ), 
+with 'HackaMol::NameRole', 'HackaMol::PhysVecMVRRole',
   'HackaMol::BondsAnglesDihedralsRole', 'HackaMol::QmMolRole';
 
 extends 'HackaMol::AtomGroup';
@@ -210,7 +211,7 @@ HackaMol::Molecule - Molecule class for HackaMol
 
 =head1 VERSION
 
-version 0.00_12
+version 0.00_13
 
 =head1 SYNOPSIS
 
@@ -402,17 +403,13 @@ L<Chemistry::Molecule>
 
 =item * L<HackaMol::NameRole>
 
+=item * L<HackaMol::NameRole|HackaMol::PhysVecMVRRole|HackaMol::BondsAnglesDihedralsRole|HackaMol::QmMolRole>
+
 =item * L<HackaMol::PhysVecMVRRole>
 
 =item * L<HackaMol::QmAtomRole>
 
 =item * L<HackaMol::QmMolRole>
-
-=item * L<MooseX::Storage::Basic>
-
-=item * L<MooseX::Storage::Basic|MooseX::Storage::IO::StorableFile|HackaMol::NameRole|HackaMol::PhysVecMVRRole|HackaMol::BondsAnglesDihedralsRole|HackaMol::QmMolRole>
-
-=item * L<MooseX::Storage::IO::StorableFile>
 
 =back
 

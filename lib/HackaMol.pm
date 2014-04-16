@@ -9,6 +9,7 @@ use HackaMol::Atom;
 use HackaMol::Bond;
 use HackaMol::Angle;
 use HackaMol::Dihedral;
+use MooseX::StrictConstructor;
 use Scalar::Util qw(refaddr);
 use Carp;
 
@@ -215,7 +216,7 @@ HackaMol - HackaMol: Object-Oriented Library for Molecular Hacking
 
 =head1 VERSION
 
-version 0.00_12
+version 0.00_13
 
 =head1 SYNOPSIS
 
