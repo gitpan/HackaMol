@@ -32,6 +32,7 @@ my %WriteMakefileArgs = (
     "Moose" => "2.12",
     "Moose::Role" => 0,
     "MooseX::StrictConstructor" => "0.19",
+    "MooseX::Types::Path::Class" => 0,
     "Scalar::Util" => 0,
     "namespace::autoclean" => 0
   },
@@ -39,6 +40,7 @@ my %WriteMakefileArgs = (
     "Cwd" => 0,
     "File::Slurp" => 0,
     "Math::Vector::Real::Random" => "0.03",
+    "Test::Dir" => 0,
     "Test::Fatal" => 0,
     "Test::Moose" => 0,
     "Test::More" => 0,
@@ -48,7 +50,7 @@ my %WriteMakefileArgs = (
     "strict" => 0,
     "warnings" => 0
   },
-  "VERSION" => "0.00_13",
+  "VERSION" => "0.00_14",
   "test" => {
     "TESTS" => "t/*.t"
   }
@@ -69,7 +71,9 @@ my %FallbackPrereqs = (
   "Moose" => "2.12",
   "Moose::Role" => 0,
   "MooseX::StrictConstructor" => "0.19",
+  "MooseX::Types::Path::Class" => 0,
   "Scalar::Util" => 0,
+  "Test::Dir" => 0,
   "Test::Fatal" => 0,
   "Test::Moose" => 0,
   "Test::More" => 0,

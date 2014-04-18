@@ -1,6 +1,6 @@
 package HackaMol::MolReadRole;
 
-# ABSTRACT: Read XYZ and PDB files
+# ABSTRACT: Read files with molecular information
 use Moose::Role;
 use Carp;
 use Math::Vector::Real;
@@ -342,11 +342,11 @@ __END__
 
 =head1 NAME
 
-HackaMol::MolReadRole - Read XYZ and PDB files
+HackaMol::MolReadRole - Read files with molecular information
 
 =head1 VERSION
 
-version 0.00_13
+version 0.00_14
 
 =head1 SYNOPSIS
 

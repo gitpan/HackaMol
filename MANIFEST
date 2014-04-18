@@ -55,6 +55,7 @@ lib/HackaMol/PhysVecMVRRole.pm
 lib/HackaMol/QmAtomRole.pm
 lib/HackaMol/QmMolRole.pm
 lib/HackaMol/References.pm
+lib/HackaMol/ScratchRole.pm
 t/000_load.t
 t/HackaMol-Angle.t
 t/HackaMol-Atom.t
@@ -66,6 +67,7 @@ t/HackaMol-Molecule.t
 t/HackaMol-PdbRole.t
 t/HackaMol-PhysVecMVRRole.t
 t/HackaMol-QmRole.t
+t/HackaMol-ScratchRole.t
 t/HackaMol.t
 t/HackaMol_Hgbonds.t
 t/lib/1L2Y.xyz
