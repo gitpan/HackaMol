@@ -346,7 +346,7 @@ HackaMol::MolReadRole - Read files with molecular information
 
 =head1 VERSION
 
-version 0.00_14
+version 0.00_15
 
 =head1 SYNOPSIS
 

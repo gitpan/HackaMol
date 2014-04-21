@@ -37,7 +37,7 @@ HackaMol::ScratchRole -
 
 =head1 VERSION
 
-version 0.00_14
+version 0.00_15
 
 =head1 DESCRIPTION
 

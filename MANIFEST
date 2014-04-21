@@ -9,6 +9,7 @@ README
 README.md
 TODO
 dist.ini
+examples/ApproxSize.pl
 examples/Atom-MVR-timer.pl
 examples/BackBone_Dihedrals.pl
 examples/Cofactor/feheme.pl
