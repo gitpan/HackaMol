@@ -3,10 +3,11 @@ abstract: 'HackaMol: Object-Oriented Library for Molecular Hacking'
 author:
   - 'Demian Riccardi <demianriccardi@gmail.com>'
 build_requires:
+  Capture::Tiny: 0
   Cwd: 0
   File::Slurp: 0
   Math::Vector::Real::Random: 0.03
-  Test::Dir: 0
+  Test::Dir: 1.014
   Test::Fatal: 0
   Test::Moose: 0
   Test::More: 0
@@ -18,7 +19,7 @@ build_requires:
 configure_requires:
   ExtUtils::MakeMaker: 6.30
 dynamic_config: 0
-generated_by: 'Dist::Zilla version 5.015, CPAN::Meta::Converter version 2.120921'
+generated_by: 'Dist::Zilla version 5.015, CPAN::Meta::Converter version 2.131560'
 license: perl
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
@@ -36,8 +37,10 @@ requires:
   Moose: 2.12
   Moose::Role: 0
   MooseX::StrictConstructor: 0.19
-  MooseX::Types::Path::Class: 0
+  MooseX::Types::Path::Class: 0.06
+  Path::Class: 0.33
   Scalar::Util: 0
+  Test::Dir: 1.014
   namespace::autoclean: 0
   perl: 5.008
-version: 0.00_15
+version: 0.00_16

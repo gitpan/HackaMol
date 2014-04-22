@@ -346,17 +346,30 @@ HackaMol::MolReadRole - Read files with molecular information
 
 =head1 VERSION
 
-version 0.00_15
+version 0.00_16
 
 =head1 SYNOPSIS
 
-use HackaMol;
+   use HackaMol;
 
-my $hack   = HackaMol->new( name => "hackitup" );
-my @atoms1 = $hack->read_file_atoms("t/lib/1L2Y.pdb"); 
-my @atoms2 = $hack->read_file_atoms("t/lib/something.xyz"); 
-my $mol    = HackaMol->new( name => "merger", atoms => [@atoms1,@atoms2]);
-$mol->print_pdb;  
+   my $hack   = HackaMol->new( name => "hackitup" );
+
+   # build array of carbon atoms from pdb [xyz,pdbqt] file
+   my @carbons  = grep {
+                        $_->symbol eq "C"
+                       } $hack->read_file_atoms("t/lib/1L2Y.pdb"); 
+
+   my $Cmol     = HackaMol::Molecule->new(
+                        name => "carbonprotein", 
+                        atoms => [ @carbons ]
+                  );
+
+   $Cmol->print_pdb;   
+   $Cmol->print_xyz;     
+
+   # build molecule from xyz [pdb,pdbqt] file
+   my $mol    = $hack->read_file_mol("some.xyz");
+   $mol->print_pdb; # not so easy from xyz to pdb! 
 
 =head1 DESCRIPTION
 

@@ -13,7 +13,8 @@ use MooseX::StrictConstructor;
 use Scalar::Util qw(refaddr);
 use Carp;
 
-with 'HackaMol::NameRole', 'HackaMol::MolReadRole', 'HackaMol::ScratchRole';
+with 'HackaMol::NameRole', 'HackaMol::MolReadRole', 
+     'HackaMol::ScratchRole', 'HackaMol::FileRole','HackaMol::ExeRole';
 
 sub read_file_append_mol{
     my $self = shift;
@@ -216,7 +217,7 @@ HackaMol - HackaMol: Object-Oriented Library for Molecular Hacking
 
 =head1 VERSION
 
-version 0.00_15
+version 0.00_16
 
 =head1 SYNOPSIS
 
@@ -413,11 +414,15 @@ L<VMD | http://www.ks.uiuc.edu/Research/vmd/>
 
 =over 4
 
+=item * L<HackaMol::ExeRole>
+
+=item * L<HackaMol::FileRole>
+
 =item * L<HackaMol::MolReadRole>
 
 =item * L<HackaMol::NameRole>
 
-=item * L<HackaMol::NameRole|HackaMol::MolReadRole|HackaMol::ScratchRole>
+=item * L<HackaMol::NameRole|HackaMol::MolReadRole|HackaMol::ScratchRole|HackaMol::FileRole|HackaMol::ExeRole>
 
 =item * L<HackaMol::ScratchRole>
 

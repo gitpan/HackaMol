@@ -9,11 +9,13 @@ README
 README.md
 TODO
 dist.ini
-examples/ApproxSize.pl
 examples/Atom-MVR-timer.pl
 examples/BackBone_Dihedrals.pl
+examples/Cofactor/1C7D.pdb
 examples/Cofactor/feheme.pl
+examples/Cofactor/shit.pdb
 examples/FTMAP/README
+examples/FTMAP/blah.fftmap.31415.pdb
 examples/FTMAP/collect_nodes.pl
 examples/FTMAP/pull_bs_ftmap.pl
 examples/FTMAP/reduce_bs_kirchoff.pl
@@ -27,12 +29,12 @@ examples/corg09_2xyz.pl
 examples/graphene_roll.pl
 examples/hackamol_synopsis.pl
 examples/heavy_mvr.pl
+examples/kdtree.pl
 examples/lazy_attr.pl
 examples/pdbqt_pdb.pl
 examples/print_ts.pl
 examples/readpdb_select_write.pl
 examples/refaddr_mvr.pl
-examples/shit.pdb
 examples/spinning_ball.pl
 examples/strip_tip_rename_his.pl
 examples/two_molecules.pl
@@ -47,6 +49,8 @@ lib/HackaMol/AtomGroupRole.pm
 lib/HackaMol/Bond.pm
 lib/HackaMol/BondsAnglesDihedralsRole.pm
 lib/HackaMol/Dihedral.pm
+lib/HackaMol/ExeRole.pm
+lib/HackaMol/FileRole.pm
 lib/HackaMol/MolReadRole.pm
 lib/HackaMol/Molecule.pm
 lib/HackaMol/NameRole.pm
@@ -64,6 +68,8 @@ t/HackaMol-AtomGroup.t
 t/HackaMol-AtomGroupRole.t
 t/HackaMol-Bond.t
 t/HackaMol-Dihedral.t
+t/HackaMol-ExeRole.t
+t/HackaMol-FileRole.t
 t/HackaMol-Molecule.t
 t/HackaMol-PdbRole.t
 t/HackaMol-PhysVecMVRRole.t

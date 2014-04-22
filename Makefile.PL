@@ -32,15 +32,18 @@ my %WriteMakefileArgs = (
     "Moose" => "2.12",
     "Moose::Role" => 0,
     "MooseX::StrictConstructor" => "0.19",
-    "MooseX::Types::Path::Class" => 0,
+    "MooseX::Types::Path::Class" => "0.06",
+    "Path::Class" => "0.33",
     "Scalar::Util" => 0,
+    "Test::Dir" => "1.014",
     "namespace::autoclean" => 0
   },
   "TEST_REQUIRES" => {
+    "Capture::Tiny" => 0,
     "Cwd" => 0,
     "File::Slurp" => 0,
     "Math::Vector::Real::Random" => "0.03",
-    "Test::Dir" => 0,
+    "Test::Dir" => "1.014",
     "Test::Fatal" => 0,
     "Test::Moose" => 0,
     "Test::More" => 0,
@@ -50,7 +53,7 @@ my %WriteMakefileArgs = (
     "strict" => 0,
     "warnings" => 0
   },
-  "VERSION" => "0.00_15",
+  "VERSION" => "0.00_16",
   "test" => {
     "TESTS" => "t/*.t"
   }
@@ -58,6 +61,7 @@ my %WriteMakefileArgs = (
 
 
 my %FallbackPrereqs = (
+  "Capture::Tiny" => 0,
   "Carp" => 0,
   "Cwd" => 0,
   "Exporter" => 0,
@@ -71,9 +75,10 @@ my %FallbackPrereqs = (
   "Moose" => "2.12",
   "Moose::Role" => 0,
   "MooseX::StrictConstructor" => "0.19",
-  "MooseX::Types::Path::Class" => 0,
+  "MooseX::Types::Path::Class" => "0.06",
+  "Path::Class" => "0.33",
   "Scalar::Util" => 0,
-  "Test::Dir" => 0,
+  "Test::Dir" => "1.014",
   "Test::Fatal" => 0,
   "Test::Moose" => 0,
   "Test::More" => 0,
