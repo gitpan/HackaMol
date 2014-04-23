@@ -14,7 +14,7 @@ use Scalar::Util qw(refaddr);
 use Carp;
 
 with 'HackaMol::NameRole', 'HackaMol::MolReadRole', 
-     'HackaMol::ScratchRole', 'HackaMol::FileRole','HackaMol::ExeRole';
+     'HackaMol::PathRole','HackaMol::ExeRole';
 
 sub read_file_append_mol{
     my $self = shift;
@@ -217,7 +217,7 @@ HackaMol - HackaMol: Object-Oriented Library for Molecular Hacking
 
 =head1 VERSION
 
-version 0.00_17
+version 0.00_18
 
 =head1 SYNOPSIS
 
@@ -416,15 +416,13 @@ L<VMD | http://www.ks.uiuc.edu/Research/vmd/>
 
 =item * L<HackaMol::ExeRole>
 
-=item * L<HackaMol::FileRole>
-
 =item * L<HackaMol::MolReadRole>
 
 =item * L<HackaMol::NameRole>
 
-=item * L<HackaMol::NameRole|HackaMol::MolReadRole|HackaMol::ScratchRole|HackaMol::FileRole|HackaMol::ExeRole>
+=item * L<HackaMol::NameRole|HackaMol::MolReadRole|HackaMol::PathRole|HackaMol::ExeRole>
 
-=item * L<HackaMol::ScratchRole>
+=item * L<HackaMol::PathRole>
 
 =back
 
