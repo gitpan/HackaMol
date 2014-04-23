@@ -38,9 +38,10 @@ requires:
   Moose::Role: 0
   MooseX::StrictConstructor: 0.19
   MooseX::Types::Path::Class: 0.06
+  MooseX::Types::Path::Tiny: 0
   Path::Class: 0.33
   Scalar::Util: 0
   Test::Dir: 1.014
   namespace::autoclean: 0
   perl: 5.008
-version: 0.00_16
+version: 0.00_17

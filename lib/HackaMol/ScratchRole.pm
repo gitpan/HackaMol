@@ -3,23 +3,29 @@ package HackaMol::ScratchRole;
 #ABSTRACT:  
 use 5.008;
 use Moose::Role;
-use MooseX::Types::Path::Class;
+use MooseX::Types::Path::Tiny qw/Path AbsPath AbsPaths/;
 
 has 'homedir' => (
     is       => 'ro',
-    isa      => 'Path::Class::Dir',
+    isa      => AbsPath,
     coerce   => 1,
 );
  
 has 'scratch' => (
     is       => 'ro',
-    isa      => 'Path::Class::Dir',
+    isa      => AbsPath,
     coerce   => 1,
 );
 
 has 'data' => (
     is       => 'ro',
-    isa      => 'Path::Class::Dir',
+    isa      => AbsPath,
+    coerce   => 1,
+); 
+
+has 'dirs' => (
+    is       => 'ro',
+    isa      => AbsPaths,
     coerce   => 1,
 ); 
 
@@ -37,7 +43,7 @@ HackaMol::ScratchRole -
 
 =head1 VERSION
 
-version 0.00_16
+version 0.00_17
 
 =head1 DESCRIPTION
 

@@ -11,11 +11,8 @@ TODO
 dist.ini
 examples/Atom-MVR-timer.pl
 examples/BackBone_Dihedrals.pl
-examples/Cofactor/1C7D.pdb
 examples/Cofactor/feheme.pl
-examples/Cofactor/shit.pdb
 examples/FTMAP/README
-examples/FTMAP/blah.fftmap.31415.pdb
 examples/FTMAP/collect_nodes.pl
 examples/FTMAP/pull_bs_ftmap.pl
 examples/FTMAP/reduce_bs_kirchoff.pl
