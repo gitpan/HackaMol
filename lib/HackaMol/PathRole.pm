@@ -6,21 +6,28 @@ use Moose::Role;
 use MooseX::Types::Path::Tiny qw/Path Paths AbsPath AbsPaths/;
 
 has 'in_fn' => (
-    is        => 'ro',
+    is        => 'rw',
     isa       => Path,
     coerce    => 1,
     predicate => 'has_in_fn', 
 );
  
 has 'out_fn' => (
-    is        => 'ro',
+    is        => 'rw',
     isa       => Path,
     coerce    => 1,
     predicate => 'has_out_fn', 
 );
 
+has 'err_fn' => (
+    is        => 'rw',
+    isa       => Path,
+    coerce    => 1,
+    predicate => 'has_err_fn',
+);
+
 has 'log_fn' => (
-    is       => 'ro',
+    is       => 'rw',
     isa      => Path,
     coerce   => 1,
     predicate => 'has_log_fn', 
@@ -37,7 +44,7 @@ has 'homedir' => (
     is       => 'ro',
     isa      => AbsPath,
     coerce   => 1,
-    predicate => 'has_homedir', 
+    default  => '.',
 );
  
 has 'scratch' => (
@@ -75,7 +82,7 @@ HackaMol::PathRole -
 
 =head1 VERSION
 
-version 0.00_18
+version 0.00_19
 
 =head1 DESCRIPTION
 
@@ -95,9 +102,9 @@ isa Path::Tiny coerced via AbsPath that is 'ro'
 
 the absolute path to the directory is constructed
 
-=head2 log_fn in_fn out_fn 
+=head2 log_fn in_fn out_fn err_fn 
 
-isa Path::Tiny coerced via Path that is 'ro'   
+isa Path::Tiny coerced via Path that is 'rw'   
 
 =head2 dirs 
 

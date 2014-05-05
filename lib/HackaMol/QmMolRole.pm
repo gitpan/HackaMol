@@ -9,6 +9,8 @@ with 'HackaMol::QmAtomRole';
 has 'multiplicity', is => 'rw', isa => 'Int', lazy => 1, default => 1;
 
 my @tscl = qw(
+  score
+  energy
   Etot Eelec Enuc
   qm_dipole_moment ionization_energy gradient_norm
   Hform
@@ -65,7 +67,7 @@ HackaMol::QmMolRole - provides attributes needed for quantum chemistry calculati
 
 =head1 VERSION
 
-version 0.00_18
+version 0.00_19
 
 =head1 SYNOPSIS
 

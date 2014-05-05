@@ -1,5 +1,9 @@
 Revision history for HackaMol
 
+0.00_19   2014-05-04 20:48:54EDT-0400 America/New_York
+    * examples are reorganized, still not organized enough #TODO
+    * PathRole files are now 'rw'.  The 'rw' is hard to resist 
+
 0.00_18   2014-04-23 14:15:49EDT-0400 America/New_York
     * merged FileRole and ScratchRole into PathRole
 
@@ -12,7 +16,7 @@ Revision history for HackaMol
       can/should be tested with scripts that run exe, capture output, etc.  use Capture::Tiny 
   
 0.00_15   2014-04-20 20:54:36EDT-0400 America/New_York
-    * update test for scratchrole
+    * minor update test for scratchrole
 
 0.00_14   2014-04-17 21:07:40EDT-0400 America/New_York
     * added ScratchRole for managing directories. Available in HackaMol builder
