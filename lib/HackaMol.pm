@@ -139,9 +139,9 @@ sub group_by_atom_attr {
 
 }
 
-sub find_disulfides {
+sub find_disulfide_bonds {
     my $self  = shift;
-    my @sulf  = grep {$_->Z == 16} grep {$_->resname eq "CYS"} @_;
+    my @sulf  = grep {$_->Z == 16} @_;
     my @ss = $self->find_bonds_brute(
                                      bond_atoms => [@sulf],
                                      candidates => [@sulf],
@@ -218,62 +218,57 @@ HackaMol - HackaMol: Object-Oriented Library for Molecular Hacking
 
 =head1 VERSION
 
-version 0.00_19
+version 0.00_20
 
 =head1 SYNOPSIS
 
-   use HackaMol;
-   use Math::Vector::Real;
-   use Math::Vector::Real::Random;
-   use Math::Trig;
+       use HackaMol;
+       use Math::Vector::Real;
 
-   my $hack = HackaMol->new( name => "hackitup" );
-   my @atoms = $hack->read_file_atoms("t/lib/1L2Y.pdb");
-   
-   # all coordinates from NMR ensemble are loaded into atoms
-   my $mol = HackaMol::Molecule->new(
-       name  => 'trp-cage',
-       atoms => [@atoms]
-   );
-   
-   #recenter all coordinates to center of mass
-   foreach my $t ( 0 .. $atoms[0]->count_coords - 1 ) {
-       $mol->t($t);
-       $mol->translate( -$mol->COM );
-   }
-   
-   # print coordinates from t=0 to trp-cage.xyz and return filehandle
-   my $fh = $mol->print_xyz( $mol->name . ".xyz" );
-   
-   # print coordinates for @t=(1..4) to same filehandle
-   foreach my $t ( 1 .. 4 ) {
-       $mol->t($t);
-       $mol->print_xyz($fh);
-   }
-   
-   $mol->t(0);
-   foreach ( 1 .. 10 ) {
-       $mol->rotate(
-           V( 0, 0, 1 ),    # rotation vector
-           36,              # rotate by 36 degrees
-           V( 5, 0, 0 )     # origin of rotation
-       );
-       $mol->print_xyz($fh);
-   }
-   
-   # translate/rotate method is provided by AtomGroupRole
-   # populate groups byatom resid attr
-   my @groups = $hack->group_by_atom_attr( 'resid', $mol->all_atoms );
-   $mol->push_groups(@groups);
+       my $hack = HackaMol->new( name => "hackitup" );
 
-   # silly rotation of sidechains about their own center of mass   
-   foreach my $ang ( 1 .. 10 ) {
-       $_->rotate( V( 1, 1, 1 ), 36, $_->COM ) foreach $mol->all_groups;
-       $mol->print_xyz($fh);
-   }
-   
-   $fh->close;    # done filling trp-cage.xyz with coordinates
-   #example/hackamol_synopsis.pl picks up from here
+       # all coordinates from NMR ensemble are loaded into atoms
+       my $mol  = $hack->read_file_mol("1L2Y.pdb");
+
+       #recenter all coordinates to center of mass
+       foreach my $t ( 0 .. $mol->tmax) {
+           $mol->t($t);
+           $mol->translate( -$mol->COM );
+       }
+
+       #create array of CA atoms with full occupancy
+
+       my @CAs = grep {
+                        $_->name    eq 'CA'  and
+                        $_->occ == 1
+                      } $mol->all_atoms;
+
+       #print out the pdb with CA for several models from the NMR
+       HackaMol::Molecule->new(
+                                atoms=>[@CAs]
+                              )-> print_pdb_ts([8,2,4,6,8,0], 'some.pdb');
+
+       # print coordinates to trp-cage.xyz and return filehandle for future
+       # writing
+       my $fh = $mol->print_xyz( $mol->name . ".xyz" );
+       foreach ( 1 .. 10 ) {
+           $mol->rotate(
+               V( 0, 0, 1 ),    # rotation vector
+               36,              # rotate by 36 degrees
+               V( 5, 0, 0 )     # origin of rotation
+           );
+           $mol->print_xyz($fh);
+       }
+
+       # translate/rotate method is provided by AtomGroupRole
+       # populate groups byatom resid attr
+       my @groups = $hack->group_by_atom_attr( 'resid', $mol->all_atoms );
+       $mol->push_groups(@groups);
+
+       foreach my $ang ( 1 .. 10 ) {
+           $_->rotate( V( 1, 1, 1 ), 36, $_->COM ) foreach $mol->all_groups;
+           $mol->print_xyz($fh);
+       }
 
 =head1 DESCRIPTION
 
@@ -285,9 +280,9 @@ attributes and methods that may be harnessed to coerce molecular computation
 through a common core. The library is inspired by L<PerlMol|http://www.perl.org>, L<BioPerl|http://bioperl.org>, L<MMTSB|http://www.mmtsb.org>, and my own experiences as a researcher. 
 
 The library is organized into two regions: HackaMol, the core (contained here)
-that has classes for atoms and molecules, and HackaMolX, the extensions, such as
-HackaMolX::PDB, a parser for protein databank files, and HackaMolX::Calculator,
-an abstract calculator for coercing molecular computation, that use the core. The three major goals of the core are for it to be well-tested, well-documented, and easy to install. The goal of the extensions is to provide a more flexible space for researchers to develop and share new methods that use the core. Extensions are in the works, but the HackaMolX namespace has not been established yet! 
+that has classes for atoms and molecules, and HackaMol::X, the extensions, such as
+HackaMol::X::Vina (an interface to Autodock Vina) or HackaMol::X::Calculator,
+a more general abstract calculator for coercing molecular computation through a common core. The three major goals of the core are for it to be well-tested, well-documented, and easy to install. The goal of the extensions is to provide a more flexible space for researchers to develop and share new methods that use the core.  
 
 HackaMol uses Math::Vector::Real (MVR) for all the vector operations. MVR is a
 lightweight solution with a fast XS dropin that overlaps very well with the
@@ -359,6 +354,10 @@ separation against the sum of the covalent radii + fudge. It will not test
 for bond between atoms if either atom has >= max_bonds. It does not return 
 a self bond for an atom (C< next if refaddr($ati) == refaddr($atj) >).
 
+=head2 find_disulfide_bonds
+
+takes a list of atoms and returns the disulfide bonds as bond objects.
+
 =head1 ATTRIBUTES
 
 =head2 name 
@@ -392,6 +391,14 @@ L<HackaMol::AtomGroup>
 =item *
 
 L<HackaMol::Molecule>
+
+=item *
+
+L<HackaMol::X::Calculator>
+
+=item *
+
+L<HackaMol::X::Vina>
 
 =item *
 

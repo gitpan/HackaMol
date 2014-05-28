@@ -69,7 +69,7 @@ HackaMol::BondsAnglesDihedralsRole - Array traits for containers of HackaMol Bon
 
 =head1 VERSION
 
-version 0.00_19
+version 0.00_20
 
 =head1 DESCRIPTION
 

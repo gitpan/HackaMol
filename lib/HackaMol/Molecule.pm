@@ -85,6 +85,12 @@ sub _build_mass {
     return ($mass);
 }
 
+sub fix_serial {
+    my @atoms  = shift->all_atoms;
+    my $offset = shift || 1; 
+    $atoms[$_]->{serial} = $_ + $offset foreach (0 .. $#atoms);
+}
+
 sub all_bonds_atoms  { return ( shift->_all_these_atoms( 'bonds',  @_ ) ) }
 sub all_angles_atoms { return ( shift->_all_these_atoms( 'angles', @_ ) ) }
 
@@ -211,7 +217,7 @@ HackaMol::Molecule - Molecule class for HackaMol
 
 =head1 VERSION
 
-version 0.00_19
+version 0.00_20
 
 =head1 SYNOPSIS
 

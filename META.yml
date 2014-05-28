@@ -29,6 +29,7 @@ requires:
   Carp: 0
   Exporter: 0
   FileHandle: 0
+  JSON::XS: 3.01
   Math::Trig: 0
   Math::Vector::Real: 0.10
   Math::Vector::Real::Random: 0.03
@@ -38,9 +39,10 @@ requires:
   Moose::Role: 0
   MooseX::StrictConstructor: 0.19
   MooseX::Types::Path::Tiny: 0.01
-  Path::Tiny: 0.052
+  Path::Tiny: 0.054
   Scalar::Util: 0
   Test::Dir: 1.014
+  YAML::XS: 0.41
   namespace::autoclean: 0
   perl: 5.008
-version: 0.00_19
+version: 0.00_20

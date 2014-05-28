@@ -14,11 +14,10 @@ examples/BackBone_Dihedrals.pl
 examples/Benchmarks/Atom-MVR-timer.pl
 examples/Benchmarks/MVR.pl
 examples/Cofactor/feheme.pl
-examples/FTMAP/README
-examples/FTMAP/collect_nodes.pl
-examples/FTMAP/pull_bs_ftmap.pl
-examples/FTMAP/reduce_bs_kirchoff.pl
 examples/Folic_acid.pl
+examples/GSSG/GSSG_3DK4.pl
+examples/GSSG/GSSG_GSHgSG.pl
+examples/GSSG/GSSG_rotate.pl
 examples/MCE/README
 examples/MCE/carve_around_ss_mce.pl
 examples/MCE/heavy_mvr.pl
@@ -31,8 +30,11 @@ examples/corg09_2xyz.pl
 examples/graphene_roll.pl
 examples/hackamol_synopsis.pl
 examples/lazy_attr.pl
+examples/mol_maxdist.pl
 examples/pdbqt_pdb.pl
+examples/print_pdb.pl
 examples/print_ts.pl
+examples/print_xyz.pl
 examples/readpdb_select_write.pl
 examples/refaddr_mvr.pl
 examples/spinning_ball.pl
