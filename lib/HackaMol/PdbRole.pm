@@ -24,19 +24,15 @@ sub aa321 {
 has 'record_name', is => 'rw', isa => 'Str', lazy => 1, default => 'HETATM';
 has 'occ',         is => 'rw', isa => 'Num', lazy => 1, default => 1.0;
 has 'bfact',       is => 'rw', isa => 'Num', lazy => 1, default => 20.0;
-has 'resname',     is => 'rw', isa => 'Str', lazy => 1, default => ' ';
+has 'resname',     is => 'rw', isa => 'Str', lazy => 1, default => 'UNK';
 has 'chain',       is => 'rw', isa => 'Str', lazy => 1, default => ' ';
 has 'altloc',      is => 'rw', isa => 'Str', lazy => 1, default => ' ';
 has 'icode',       is => 'rw', isa => 'Str', lazy => 1, default => ' ';
 has 'pdbid',       is => 'rw', isa => 'Str', lazy => 1, default => ' ';
 has 'segid',       is => 'rw', isa => 'Str', lazy => 1, default => ' ';
-
-has "$_" =>  ( 
-                  is        => 'rw', 
-                  isa       => 'Int', 
-                  lazy      => 1, 
-                  default   => 0,
-) foreach qw(iatom resid serial);
+has 'iatom',       is => 'rw', isa => 'Int', lazy => 1, default => 0;
+has 'resid',       is => 'rw', isa => 'Int', lazy => 1, default => 1;
+has 'serial',      is => 'rw', isa => 'Int', lazy => 1, default => 1;
 
 no Moose::Role;
 1;
@@ -100,7 +96,7 @@ HackaMol::PdbRole - PdbRole of lazy attributes for HackaMol atoms
 
 =head1 VERSION
 
-version 0.00_20
+version 0.00_21
 
 =head1 SYNOPSIS
 

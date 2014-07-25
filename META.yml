@@ -3,46 +3,47 @@ abstract: 'HackaMol: Object-Oriented Library for Molecular Hacking'
 author:
   - 'Demian Riccardi <demianriccardi@gmail.com>'
 build_requires:
-  Capture::Tiny: 0
-  Cwd: 0
-  File::Slurp: 0
-  Math::Vector::Real::Random: 0.03
-  Test::Dir: 1.014
-  Test::Fatal: 0
-  Test::Moose: 0
-  Test::More: 0
-  Test::Output: 0
-  Test::Warn: 0
-  Time::HiRes: 0
-  strict: 0
-  warnings: 0
+  Capture::Tiny: '0'
+  Cwd: '0'
+  File::Slurp: '0'
+  Math::Vector::Real::Random: '0.03'
+  Test::Dir: '1.014'
+  Test::Fatal: '0'
+  Test::Moose: '0'
+  Test::More: '0'
+  Test::Output: '0'
+  Test::Warn: '0'
+  Time::HiRes: '0'
+  strict: '0'
+  warnings: '0'
 configure_requires:
-  ExtUtils::MakeMaker: 6.30
+  ExtUtils::MakeMaker: '6.30'
 dynamic_config: 0
-generated_by: 'Dist::Zilla version 5.015, CPAN::Meta::Converter version 2.120921'
+generated_by: 'Dist::Zilla version 5.019, CPAN::Meta::Converter version 2.140640'
 license: perl
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
-  version: 1.4
+  version: '1.4'
 name: HackaMol
 requires:
-  Carp: 0
-  Exporter: 0
-  FileHandle: 0
-  JSON::XS: 3.01
-  Math::Trig: 0
-  Math::Vector::Real: 0.10
-  Math::Vector::Real::Random: 0.03
-  Math::Vector::Real::XS: 0.04
-  Modern::Perl: 1.20
-  Moose: 2.12
-  Moose::Role: 0
-  MooseX::StrictConstructor: 0.19
-  MooseX::Types::Path::Tiny: 0.01
-  Path::Tiny: 0.054
-  Scalar::Util: 0
-  Test::Dir: 1.014
-  YAML::XS: 0.41
-  namespace::autoclean: 0
-  perl: 5.008
-version: 0.00_20
+  Carp: '0'
+  Exporter: '0'
+  FileHandle: '0'
+  JSON::XS: '3.01'
+  Math::Trig: '0'
+  Math::Vector::Real: '0.14'
+  Math::Vector::Real::Random: '0.03'
+  Math::Vector::Real::XS: '0.07'
+  Math::Vector::Real::kdTree: '0.10'
+  Modern::Perl: '1.20'
+  Moose: '2.12'
+  Moose::Role: '0'
+  MooseX::StrictConstructor: '0.19'
+  MooseX::Types::Path::Tiny: '0.01'
+  Path::Tiny: '0.054'
+  Scalar::Util: '0'
+  Test::Dir: '1.014'
+  YAML::XS: '0.41'
+  namespace::autoclean: '0'
+  perl: '5.008'
+version: 0.00_21

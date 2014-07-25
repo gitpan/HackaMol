@@ -31,14 +31,14 @@ sub dihe_rad {
     return ( $atoms[0]->dihedral_rad( $atoms[1], $atoms[2], $atoms[3] ) );
 }
 
-has 'improper_dihe_energy_func' => (
+has 'improper_dihe_efunc' => (
     is      => 'rw',
     isa     => 'CodeRef',
-    builder => "_build_improper_dihe_energy_func",
+    builder => "_build_improper_dihe_efunc",
     lazy    => 1,
 );
 
-sub _build_improper_dihe_energy_func {
+sub _build_improper_dihe_efunc {
     my $subref = sub {
         my $dihedral = shift;
         my $val      = ( $dihedral->dihe_deg - $dihedral->dihe_eq )**2;
@@ -47,14 +47,14 @@ sub _build_improper_dihe_energy_func {
     return ($subref);
 }
 
-has 'torsion_energy_func' => (
+has 'torsion_efunc' => (
     is      => 'rw',
     isa     => 'CodeRef',
-    builder => "_build_torsion_energy_func",
+    builder => "_build_torsion_efunc",
     lazy    => 1,
 );
 
-sub _build_torsion_energy_func {
+sub _build_torsion_efunc {
     my $subref = sub {
         my $dihedral = shift;
         my $val =
@@ -68,15 +68,13 @@ sub _build_torsion_energy_func {
 
 sub torsion_energy {
     my $self = shift;
-    return (0) unless ( $self->dihe_fc > 0 ); # necessary?
-    my $energy = &{ $self->torsion_energy_func }( $self, @_ );
+    my $energy = &{ $self->torsion_efunc }( $self, @_ );
     return ($energy);
 }
 
 sub improper_dihe_energy {
     my $self = shift;
-    return (0) unless ( $self->dihe_fc > 0 );
-    my $energy = &{ $self->improper_dihe_energy_func }( $self, @_ );
+    my $energy = &{ $self->improper_dihe_efunc }( $self, @_ );
     return ($energy);
 }
 
@@ -94,7 +92,7 @@ HackaMol::Dihedral - Dihedral Angle class for HackaMol
 
 =head1 VERSION
 
-version 0.00_20
+version 0.00_21
 
 =head1 SYNOPSIS
 
@@ -164,12 +162,12 @@ no arguments. returns the angle (radians) between the planes containing
 =head2 improper_dihe_energy 
 
 arguments, as many as you want. Calculates energy using the 
-improper_dihe_energy_func described below, if the attribute, dihe_fc > 0.  
-The improper_dihe_energy method calls the improper_dihe_energy_func as follows: 
+improper_dihe_efunc described below, if the attribute, dihe_fc > 0.  
+The improper_dihe_energy method calls the improper_dihe_efunc as follows: 
 
-   my $energy = &{$self->improper_dihe_energy_func}($self,@_);
+   my $energy = &{$self->improper_dihe_efunc}($self,@_);
 
-which will pass $self and that in @_ array to improper_dihe_energy_func, which, similar to the Bond and Angle classes, can be redefined. torsion_energy is analogous.
+which will pass $self and that in @_ array to improper_dihe_efunc, which, similar to the Bond and Angle classes, can be redefined. torsion_energy is analogous.
 
 =head2 torsion_energy
 
@@ -202,14 +200,14 @@ isa Num that is lazy and rw. default = 0.  force constant for harmonic bond pote
 
 isa Num that is lazy and rw. default = 0.  Equilibrium dihedral angle.  
 
-=head2 improper_dihe_energy_func 
+=head2 improper_dihe_efunc 
 
 isa CodeRef that is lazy and rw. default uses builder to generate a 
 harmonic potential for the improper_dihedral and a torsion potential. 
 
-=head2 torsion_energy_func
+=head2 torsion_efunc
 
-analogous to improper_dihe_energy_func 
+analogous to improper_dihe_efunc 
 
 =head1 SEE ALSO
 

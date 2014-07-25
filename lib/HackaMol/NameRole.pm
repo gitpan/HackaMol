@@ -4,7 +4,7 @@ package HackaMol::NameRole;
 use 5.008;
 use Moose::Role;
 
-has 'name', is => 'rw', isa => 'Str', predicate => 'has_name', clearer => 'clear_name';
+has 'name', is => 'rw', isa => 'Str', predicate => 'has_name' , clearer => 'clear_name';
 
 no Moose::Role;
 
@@ -20,7 +20,7 @@ HackaMol::NameRole - provides name attribute
 
 =head1 VERSION
 
-version 0.00_20
+version 0.00_21
 
 =head1 DESCRIPTION
 

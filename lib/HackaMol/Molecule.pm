@@ -217,7 +217,7 @@ HackaMol::Molecule - Molecule class for HackaMol
 
 =head1 VERSION
 
-version 0.00_20
+version 0.00_21
 
 =head1 SYNOPSIS
 
@@ -288,25 +288,25 @@ stores coordinates in place.
 
 =head2 angle_bend_atoms
 
-takes Angle object, an angle (degress), and active atoms as arguments. rotates the active atoms
+takes Angle object, an angle (degrees), and active atoms as arguments. rotates the active atoms
 about the vector normal to be angle and stores rotated coordinates in place 
 ($atom->set_coords($mol->t,$rotated_coor)).
 
 =head2 angle_bend_groups
 
-takes Angle object, an angle (degress), and active groups as arguments. rotates the atoms
+takes Angle object, an angle (degrees), and active groups as arguments. rotates the atoms
 in the active groups about the vector normal to be angle and stores rotated coordinates 
 in place ($atom->set_coords($mol->t,$rotated_coor)).
 
 =head2 dihedral_rotate_atoms
 
-takes Dihedral object, an angle (degress), and active atoms as arguments. rotates the active atoms
+takes Dihedral object, an angle (degrees), and active atoms as arguments. rotates the active atoms
 about the dihedral and stores rotated coordinates in place 
 ($atom->set_coords($mol->t,$rotated_coor)).
 
 =head2 dihedral_rotate_groups
 
-takes Dihedral object, an angle (degress), and active groups as arguments. rotates atoms in 
+takes Dihedral object, an angle (degrees), and active groups as arguments. rotates atoms in 
 groups about the dihedral and stores rotated coordinates in place 
 ($atom->set_coords($mol->t,$rotated_coor)).
 
