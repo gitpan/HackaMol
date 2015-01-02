@@ -26,8 +26,10 @@ my %aas = (
 );
 
 foreach my $aa ( keys(%aas) ) {
+
     my $smiles = $aas{$aa};
     my @a      = `obabel -:\"$smiles\" -opdb --gen3D`;
     chomp @a;
     print Dump \@a;
+
 }

@@ -6,6 +6,7 @@ use Carp;
 use Math::Vector::Real;
 use HackaMol::PeriodicTable qw(%KNOWN_NAMES);
 use FileHandle;
+use HackaMol::Atom;#add the code,the Role may better to understand
 
 has 'hush_read' => (
     is      => 'rw',
@@ -303,7 +304,7 @@ sub read_xyz_atoms {
 sub _trim {
     my $string = shift;
     $string =~ s/^\s+//;
-    $string =~ s/\s+$//;
+ #   $string =~ s/\s+$//; #unpack will delete the \s+ in the end;
     return $string;
 }
 
@@ -346,7 +347,7 @@ HackaMol::MolReadRole - Read files with molecular information
 
 =head1 VERSION
 
-version 0.00_21
+version 0.00_22
 
 =head1 SYNOPSIS
 
@@ -428,7 +429,7 @@ Demian Riccardi <demianriccardi@gmail.com>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2014 by Demian Riccardi.
+This software is copyright (c) 2015 by Demian Riccardi.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

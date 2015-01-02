@@ -17,9 +17,9 @@ build_requires:
   strict: '0'
   warnings: '0'
 configure_requires:
-  ExtUtils::MakeMaker: '6.30'
+  ExtUtils::MakeMaker: '0'
 dynamic_config: 0
-generated_by: 'Dist::Zilla version 5.019, CPAN::Meta::Converter version 2.140640'
+generated_by: 'Dist::Zilla version 5.029, CPAN::Meta::Converter version 2.143240'
 license: perl
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
@@ -30,20 +30,21 @@ requires:
   Exporter: '0'
   FileHandle: '0'
   JSON::XS: '3.01'
+  MCE: '1.52'
   Math::Trig: '0'
   Math::Vector::Real: '0.14'
   Math::Vector::Real::Random: '0.03'
   Math::Vector::Real::XS: '0.07'
   Math::Vector::Real::kdTree: '0.10'
   Modern::Perl: '1.20'
-  Moose: '2.12'
+  Moose: '2.14'
   Moose::Role: '0'
   MooseX::StrictConstructor: '0.19'
   MooseX::Types::Path::Tiny: '0.01'
-  Path::Tiny: '0.054'
+  Path::Tiny: '0.06'
   Scalar::Util: '0'
   Test::Dir: '1.014'
   YAML::XS: '0.41'
   namespace::autoclean: '0'
   perl: '5.008'
-version: 0.00_21
+version: 0.00_22
